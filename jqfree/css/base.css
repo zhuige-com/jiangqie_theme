@@ -1,0 +1,205 @@
+/**
+ * Jiangqie's Reset CSS
+ * http://www.jiangqie.com
+ */
+ 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section{
+  display: block;
+}
+ol, ul, li{
+  list-style: none;
+}
+blockquote, q{
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after{
+  content: '';
+  content: none;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+/* custom */
+a{
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track-piece{
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical{
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+
+
+a:link,a:visited {
+    text-decoration: none;
+    color: #262626;
+}
+
+a:hover,a:active {
+    text-decoration: underline;
+    color: #f60;
+}
+
+
+/*INPUT PLACEHOLDER*/
+input:not([type=checkbox]), button, textarea, select {
+  display: block;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  border-radius: 0; 
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: 0; 
+}
+
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder {
+  color: white !important; 
+}
+
+
+html, body{
+  width: 100%;
+  font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+body{
+  line-height: 1.15;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html{
+  overflow-y: scroll;
+}
+ 
+ 
+ /*清除浮动*/
+ .clearfix:before,
+ .clearfix:after{
+   content: " ";
+   display: inline-block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+ }
+ .clearfix{
+   *zoom: 1;
+ }
+  
+ /*隐藏*/
+ .dn{
+   display: none;
+ }
+ 
+ /* 单行文本超出隐藏并显示省略 */
+ .overflow-1 {
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	white-space: nowrap;
+ }
+ 
+ /* 多行文本超出隐藏并显示省略 */
+ .overFlow-n {
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	display: -webkit-box;
+ 	-webkit-line-clamp: 2;
+ 	-webkit-box-orient: vertical;
+ }
+ 
+ 
+/* 数据表格（隔行换色）*/
+.data-table {
+    margin: 10px 0;
+}
+.data-table table {
+    width: 100%;
+    border-collapse: collapse; //设置表格边框合并为单一边框
+}
+.data-table caption {
+    height: 30px;
+    line-height: 30px;
+    font-weight: 700;
+}
+.data-table thead th,
+.data-table tbody td {
+    padding:8px;
+    height: 19px;
+    line-height: 19px;
+    font-weight: 400;
+}
+.data-table thead th {
+    text-align: left;
+    color:#fff;
+    background-color: #353535;
+}
+.data-table tbody tr {
+    background-color: #fefefe;
+    color: #686868;
+}
+.data-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* .data-table tbody tr:nth-child(1) {
+	background: #eee;
+} */
+
+/* 复选框的列宽 */
+.row-selected {
+    width: 15px;
+}
+ 
