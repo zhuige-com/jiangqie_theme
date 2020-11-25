@@ -10,16 +10,24 @@ require_once get_theme_file_path() . '/inc/jiangqie-user-avatar.php';
 /**
  * 开启链接管理
  */
-add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+add_filter('pre_option_link_manager_enabled', '__return_true');
 
 /**
  * 移除图片的宽高属性
  */
-add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
-function remove_width_attribute( $html ) {
-   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-   return $html;
+add_filter('post_thumbnail_html', 'remove_width_attribute', 10);
+add_filter('image_send_to_editor', 'remove_width_attribute', 10);
+function remove_width_attribute($html)
+{
+    $html = preg_replace('/(width|height)="\d*"\s/', "", $html);
+    return $html;
+}
+
+/**
+ * 开启特色图功能
+ */
+if (function_exists('add_theme_support')) {
+    add_theme_support('post-thumbnails');
 }
 
 // 在init action处注册脚本，可以与其它逻辑代码放在一起
@@ -586,7 +594,7 @@ function jiangqie_nav_catsegories()
     } else {
         $args = [];
     }
-    
+
     $categories = array_reverse(get_categories($args));
     return $categories;
 }
@@ -598,13 +606,13 @@ function jiangqie_comment_list($comment, $args, $depth)
     echo '<p class="simple-info">';
     echo '<a href="' . ($comment->comment_author_url ? $comment->comment_author_url : '#') . '" title="">';
 
-	jiangqie_avatar($comment->user_id);
+    jiangqie_avatar($comment->user_id);
 
     $comment_author = get_user_meta($comment->user_id, 'nickname', true);
     if (empty($comment_author)) {
         $comment_author = $comment->comment_author;
     }
-    
+
     echo '<em>' . $comment_author  . '</em>';
 
     echo '</a>';
@@ -634,11 +642,12 @@ function jiangqie_reward_image()
 /**
  * 酱茄头像
  */
-function jiangqie_avatar($user_id) {
+function jiangqie_avatar($user_id)
+{
     $avatar = get_user_meta($user_id, 'jiangqie_avatar', true);
     if (empty($avatar)) {
         $avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
     }
-    
+
     echo '<img alt="" src="' . $avatar . '" />';
 }
