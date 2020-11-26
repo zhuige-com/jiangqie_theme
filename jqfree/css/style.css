@@ -21,6 +21,10 @@ nav{
   height: 70px;
 /*  padding: 0 100px;
  */}
+
+.nav-items ul {
+	display: flex;
+}
 nav .logo{
   color: #333;
   font-size: 30px;
