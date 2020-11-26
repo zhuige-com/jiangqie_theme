@@ -31,7 +31,7 @@ if (function_exists('add_theme_support')) {
 }
 
 // 在init action处注册脚本，可以与其它逻辑代码放在一起
-function jiangqie_init()
+function jiangqie_theme_init()
 {
     $url = get_template_directory_uri();
 
@@ -50,7 +50,7 @@ function jiangqie_init()
 
     // 其它需要在init action处运行的脚本
 }
-add_action('init', 'jiangqie_init');
+add_action('init', 'jiangqie_theme_init');
 
 
 function jiangqie_scripts()
