@@ -53,12 +53,12 @@
 									<div class="column xs-6 sm-6 md-12 mb-20">
 										<figure class="relative">
 											<div>
-												<a href="<?php echo $slide['url'] ?>" target="_blank">
+												<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
 													<img alt="" src="<?php echo $slide_ad['image']['url'] ?>" alt="">
 												</a>
 											</div>
 											<figcaption class="absolute bottom left">
-												<a href="<?php echo $slide['url'] ?>" target="_blank">
+												<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
 													<span class="title"><?php echo $slide_ad['title'] ?></span>
 												</a>
 											</figcaption>
