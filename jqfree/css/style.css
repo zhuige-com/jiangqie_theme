@@ -229,7 +229,8 @@ nav .search-icon{
     padding: 10px 50px 0 50px;
     text-align: center;
     background: #F3F3F3;
-    display: inline-block;
+	/* display: inline-block; */
+	display: none;
   }
   
   nav .nav-box.active{
