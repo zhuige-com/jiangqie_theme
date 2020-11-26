@@ -7,8 +7,9 @@
 	<title><?php jiangqie_seo_title() ?></title>
 	<?php wp_head(); ?>
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=1">
-<!-- 	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css">
- -->	<script>
+	<!-- 	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+ -->
+	<script>
 		var gCatId = undefined;
 		var gTagId = undefined;
 		var gAuthorId = undefined;
@@ -34,7 +35,7 @@
 
 <body>
 	<header>
-	<?php ?>
+		<?php ?>
 		<!--主导航-->
 		<nav id="top-nav-wraper" class="container">
 			<div class="menu-icon">
@@ -44,12 +45,16 @@
 			</div>
 			<a class="logo" href="<?php echo home_url(); ?>"><?php jiangqie_site_logo() ?></a>
 			<?php
-			wp_nav_menu([
-				'theme_location' => 'main-menu',
-				'container' => 'div',
-				'container_class' => 'nav-box',
-				'menu_class' => 'nav-items',
-			]); ?>
+			$menus = get_nav_menu_locations();
+			if (isset($menus['main-menu'])) {
+				wp_nav_menu([
+					'theme_location' => 'main-menu',
+					'container' => 'div',
+					'container_class' => 'nav-box',
+					'menu_class' => 'nav-items',
+				]);
+			}
+			?>
 			<div class="search-icon">
 				<span class="fas">
 					<img src="<?php echo get_stylesheet_directory_uri() . '/images/fa-search.png'; ?>">
