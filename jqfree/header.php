@@ -53,7 +53,13 @@
 					'container_class' => 'nav-box',
 					'menu_class' => 'nav-items',
 				]);
-			}
+			} else { ?>
+				<div class="nav-box">
+					<ul class="nav-items">
+						<li class="menu-item"><a href="https://www.jiangqie.com/docs#jqfree" target="_blank">新朋友请参考酱茄主题安装文档</a></li>
+					</ul>
+				</div>
+			<?php }
 			?>
 			<div class="search-icon">
 				<span class="fas">
