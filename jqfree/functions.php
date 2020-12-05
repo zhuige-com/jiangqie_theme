@@ -413,26 +413,25 @@ function home_post_recommend()
 
     $args = [
         'post__in' => $hot_ids,
+        'orderby' => 'post__in',
+        'posts_per_page' => -1,
+        'ignore_sticky_posts' => 1
     ];
 
     $hots = [];
     $query = new WP_Query();
     $result = $query->query($args);
-    foreach ($hot_ids as $hot_id) {
-        foreach ($result as $post) {
-            if ($hot_id == $post->ID) {
-                $thumbnail = jiangqie_thumbnail_src_d($post->ID, $post->post_content);
-                if (empty($thumbnail)) {
-                    $thumbnail = get_stylesheet_directory_uri() . '/images/jiangqie.png';
-                }
-                $hots[] = [
-                    'id' => $post->ID,
-                    'title' => $post->post_title,
-                    'thumbnail' => $thumbnail
-                ];
-            }
-        }
-    }
+	foreach ($result as $post) {
+		$thumbnail = jiangqie_thumbnail_src_d($post->ID, $post->post_content);
+		if (empty($thumbnail)) {
+			$thumbnail = get_stylesheet_directory_uri() . '/images/jiangqie.png';
+		}
+		$hots[] = [
+			'id' => $post->ID,
+			'title' => $post->post_title,
+			'thumbnail' => $thumbnail
+		];
+	}
 
     if (empty($hots)) {
         return false;
@@ -453,21 +452,20 @@ function footer_hot_recommend()
 
     $args = [
         'post__in' => $hot_ids,
+		'orderby' => 'post__in',
+        'posts_per_page' => -1,
+        'ignore_sticky_posts' => 1
     ];
 
     $hots = [];
     $query = new WP_Query();
     $result = $query->query($args);
-    foreach ($hot_ids as $hot_id) {
-        foreach ($result as $post) {
-            if ($hot_id == $post->ID) {
-                $hots[] = [
-                    'id' => $post->ID,
-                    'title' => $post->post_title
-                ];
-            }
-        }
-    }
+	foreach ($result as $post) {
+		$hots[] = [
+			'id' => $post->ID,
+			'title' => $post->post_title
+		];
+	}
 
     if (empty($hots)) {
         return false;
