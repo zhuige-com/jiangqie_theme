@@ -16,8 +16,7 @@
 							<div class="lb-box" id="lb-1">
 								<!-- 轮播内容 -->
 								<div class="lb-content">
-									<?php $home_slide = jiangqie_option('home_slide');
-									foreach ($home_slide as $slide) : ?>
+									<?php foreach ($home_slide as $slide) : ?>
 										<div class="lb-item active">
 											<a href="<?php echo $slide['url'] ?>" target="_blank">
 												<img src="<?php echo $slide['image']['url'] ?>" alt="picture loss">
@@ -30,7 +29,7 @@
 								</div>
 								<!-- 轮播标志 -->
 								<ol class="lb-sign">
-									<?php for ($i = 1; $i <= count($slide); $i++) :
+									<?php for ($i = 1; $i <= count($home_slide); $i++) :
 										if ($i == 1) echo '<li class="active">' . $i . '</li>';
 										else echo '<li>' . $i . '</li>';
 									endfor; ?>
