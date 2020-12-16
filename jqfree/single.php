@@ -28,16 +28,14 @@
 												<em><?php the_author() ?></em>
 											<?php endif; ?>
 										</a> ·
-									<nobr>
-										<?php endif; ?>
-										<!-- 浏览数 -->
-										<?php jiangqie_post_detail_view_count(); ?>
-										<!-- 点赞数 -->
-										<?php jiangqie_post_detail_thumbup_count(); ?>
-										<!-- 评论数 -->
-										<?php jiangqie_post_detail_comment_count(); ?>
-										<!-- 发布时间 -->
-									</nobr>
+									<?php endif; ?>
+									<!-- 浏览数 -->
+									<?php jiangqie_post_detail_view_count(); ?>
+									<!-- 点赞数 -->
+									<?php jiangqie_post_detail_thumbup_count(); ?>
+									<!-- 评论数 -->
+									<?php jiangqie_post_detail_comment_count(); ?>
+									<!-- 发布时间 -->
 									<cite><?php echo jiangqie_time_ago(get_gmt_from_date(get_the_time('Y-m-d G:i:s'))); ?></cite>
 								</p>
 							</div>
@@ -46,14 +44,14 @@
 							</div>
 
 							<?php
-							//版权信息
+							//标签信息
 							$detail_switch_tag = jiangqie_option('detail_switch_tag');
 							if ($detail_switch_tag) : ?>
-							<div class="content-tag mb-20">
-								<div class="tag-list">
-									<?php the_tags('', '', '') ?>
+								<div class="content-tag mb-20">
+									<div class="tag-list">
+										<?php the_tags('', '', '') ?>
+									</div>
 								</div>
-							</div>
 							<?php endif; ?>
 
 							<?php

@@ -98,12 +98,13 @@
 				<div class="article-list mb-20">
 					<div class="tab_nav-wraper">
 						<h1>最新文章</h1>
-						<?php $categories = jiangqie_nav_catsegories(); ?>
+
 						<ul class="tab_nav">
 							<li class="tab-nav-li tabNav_active">
 								<text>全部</text>
 							</li>
-							<?php foreach ($categories as $cat) : ?>
+							<?php $categories = jiangqie_nav_catsegories();
+							foreach ($categories as $cat) : ?>
 								<li class="tab-nav-li" data-catid="<?php echo $cat->term_id; ?>">
 									<text><?php echo  $cat->name; ?></text>
 								</li>
