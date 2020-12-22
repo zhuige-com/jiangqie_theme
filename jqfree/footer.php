@@ -2,9 +2,6 @@
 <footer>
 	<!--页脚图标链接-->
 	<div class="container ta-c pb-30 main-footer-links">
-		<!-- <a href="#" title="">图标链接1</a>
-		<a href="#" title="">图标链接1</a>
-		<a href="#" title="">图标链接1</a> -->
 		<?php $footer_icons = jiangqie_option('footer_icons');
 		foreach ($footer_icons as $icon) : ?>
 			<a style="color: white;" href="<?php echo $icon['url'] ?>" title="" target="_blank">
