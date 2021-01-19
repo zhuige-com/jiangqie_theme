@@ -321,7 +321,11 @@ function jiangqie_breadcrumbs()
         global $post;
         $homeLink = home_url() . '/';
         echo '<a itemprop="breadcrumb" href="' . $homeLink . '">' . __('首页', 'cmp') . '</a> ' . $delimiter . ' ';
-        if (is_category()) { // 分类 存档
+        if (is_404()) { // 404 页面
+            echo $before;
+            _e('Not Found', 'cmp');
+            echo $after;
+        } else if (is_category()) { // 分类 存档
             global $wp_query;
             $cat_obj = $wp_query->get_queried_object();
             $thisCat = $cat_obj->term_id;
@@ -388,11 +392,8 @@ function jiangqie_breadcrumbs()
             echo $before;
             printf(__('作者: %s', 'cmp'), $userdata->display_name);
             echo $after;
-        } elseif (is_404()) { // 404 页面
-            echo $before;
-            _e('Not Found', 'cmp');
-            echo $after;
         }
+
         if (get_query_var('paged')) { // 分页
             if (is_category() || is_day() || is_month() || is_year()  || is_tag() || is_author())
                 echo sprintf(__('( Page %s )', 'cmp'), get_query_var('paged'));

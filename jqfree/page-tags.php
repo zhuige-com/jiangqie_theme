@@ -4,7 +4,6 @@ Template Name: 酱茄-标签云
 */
 ?>
 <?php get_header(); ?>
-<!-- Column 1 /Content -->
 
 <div class="main-body mt-20">
 	<div class="container">

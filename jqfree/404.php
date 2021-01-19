@@ -6,7 +6,10 @@
             <article class="column xs-12 sm-12 md-8 mb-10-xs mb-0-md">
 
                 <div class="base-list search-list mb-20">
-                    这个页面不存在~
+                    <?php jiangqie_breadcrumbs(); ?>
+                    <div class="content-wrap">
+                        这个页面不存在~
+                    </div>
                 </div>
 
             </article>
