@@ -323,7 +323,7 @@ function jiangqie_breadcrumbs()
         echo '<a itemprop="breadcrumb" href="' . $homeLink . '">' . __('首页', 'cmp') . '</a> ' . $delimiter . ' ';
         if (is_404()) { // 404 页面
             echo $before;
-            _e('Not Found', 'cmp');
+            _e('404', 'cmp');
             echo $after;
         } else if (is_category()) { // 分类 存档
             global $wp_query;
@@ -358,9 +358,6 @@ function jiangqie_breadcrumbs()
                 echo $cat_code = str_replace('<a', '<a itemprop="breadcrumb"', $cat_code);
                 echo $before . '正文' . $after;
             }
-        } elseif (!is_single() && !is_page() && get_post_type() != 'post') {
-            $post_type = get_post_type_object(get_post_type());
-            echo $before . $post_type->labels->singular_name . $after;
         } elseif (is_attachment()) { // 附件
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);
@@ -381,17 +378,20 @@ function jiangqie_breadcrumbs()
             foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $delimiter . ' ';
             echo $before . get_the_title() . $after;
         } elseif (is_search()) { // 搜索结果
-            printf(__('搜索结果： <b style="color:#4680ff">%s</b>', 'cmp'), get_search_query());
+            printf(__('搜索：%s', 'cmp'), get_search_query());
         } elseif (is_tag()) { //标签 存档
             echo $before;
-            printf(__('<b>标签:</b> %s', 'cmp'), single_tag_title('', FALSE));
+            printf(__('标签：%s', 'cmp'), single_tag_title('', FALSE));
             echo $after;
         } elseif (is_author()) { // 作者存档
             global $author;
             $userdata = get_userdata($author);
             echo $before;
-            printf(__('作者: %s', 'cmp'), $userdata->display_name);
+            printf(__('作者：%s', 'cmp'), $userdata->display_name);
             echo $after;
+        } elseif (!is_single() && !is_page() && get_post_type() != 'post') {
+            $post_type = get_post_type_object(get_post_type());
+            echo $before . $post_type->labels->singular_name . $after;
         }
 
         if (get_query_var('paged')) { // 分页

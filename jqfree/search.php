@@ -8,13 +8,9 @@
 
 				<div class="base-list article-list search-list mb-20">
 					<?php jiangqie_breadcrumbs(); ?>
-					<?php if (is_category()): ?>
-						<h5 class="mb-10"><?php the_category() ?></h5>
-					<?php endif; ?>
-					<div class="base-box">
-
-						<?php if (have_posts()) :
-							while (have_posts()) : the_post();
+					<?php if (have_posts()) : ?>
+						<div class="base-box">
+							<?php while (have_posts()) : the_post();
 								$thumbnail = jiangqie_thumbnail_src();
 								if (!empty($thumbnail)) : ?>
 									<div class="simple-item simple-left-side">
@@ -41,8 +37,8 @@
 												if ($list_switch_author_avatar || $list_switch_author_name) : ?>
 													<a href="<?php echo get_author_posts_url(get_the_author_id()); ?>" title="<?php the_author() ?>">
 														<?php if ($list_switch_author_avatar) :
-																jiangqie_avatar(get_the_author_id());
-															  endif; ?>
+															jiangqie_avatar(get_the_author_id());
+														endif; ?>
 														<?php if ($list_switch_author_name) : ?>
 															<em><?php the_author() ?></em>
 														<?php endif; ?>
@@ -77,8 +73,8 @@
 												if ($list_switch_author_avatar || $list_switch_author_name) : ?>
 													<a href="<?php echo get_author_posts_url(get_the_author_id()); ?>" title="<?php the_author() ?>">
 														<?php if ($list_switch_author_avatar) :
-																jiangqie_avatar(get_the_author_id());
-															  endif; ?>
+															jiangqie_avatar(get_the_author_id());
+														endif; ?>
 														<?php if ($list_switch_author_name) : ?>
 															<em><?php the_author() ?></em>
 														<?php endif; ?>
@@ -97,8 +93,14 @@
 									</div>
 								<?php endif; ?>
 							<?php endwhile; ?>
-						<?php endif; ?>
-					</div>
+						</div>
+					<?php else : ?>
+						<div class="content-wrap">
+							<div class="content-view mb-20">
+								没有找到文章！
+							</div>
+						</div>
+					<?php endif; ?>
 				</div>
 
 			</article>
