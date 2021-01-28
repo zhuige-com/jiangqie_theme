@@ -43,6 +43,7 @@
 	<!--页脚版权-->
 	<div class="container ta-c pt-40 main-footer-copyinfo">
 		<?php echo jiangqie_option('footer_copyright'); ?>
+		<div style="display: none;"><?php echo jiangqie_option('footer_statistics'); ?><div>
 	</div>
 </footer>
 

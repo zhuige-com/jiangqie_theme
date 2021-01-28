@@ -586,15 +586,31 @@ function jiangqie_favicon()
  */
 function jiangqie_nav_catsegories()
 {
-    $home_cat_hide = jiangqie_option('home_cat_hide');
-    if (!empty($home_cat_hide)) {
-        $home_cat_hide = implode(",", $home_cat_hide);
-        $args = ['exclude' => $home_cat_hide];
+    // $home_cat_hide = jiangqie_option('home_cat_hide');
+    // if (!empty($home_cat_hide)) {
+    //     $home_cat_hide = implode(",", $home_cat_hide);
+    //     $args = ['exclude' => $home_cat_hide];
+    // } else {
+    //     $args = [];
+    // }
+
+    $home_cat_show = jiangqie_option('home_cat_show');
+    $categories = [];
+    if (!empty($home_cat_show)) {
+        $include = implode(",", $home_cat_show);
+        $args = ['include' => $include];
+        $result = get_categories($args);
+        foreach ($home_cat_show as $cat_id) {
+            foreach ($result as $cat) {
+                if($cat_id == $cat->term_id) {
+                    $categories[] = $cat;
+                }
+            }
+        }
     } else {
-        $args = [];
+        $categories = get_categories();
     }
 
-    $categories = array_reverse(get_categories($args));
     return $categories;
 }
 
