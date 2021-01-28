@@ -11,7 +11,6 @@ add_action('wp_ajax_nopriv_jaingqie_thumbup', 'jaingqie_thumbup');
 add_action('wp_ajax_jaingqie_thumbup', 'jaingqie_thumbup');
 function jaingqie_thumbup()
 {
-    global $wpdb, $post;
     $id = $_POST["um_id"];
     $action = $_POST["um_action"];
     if ($action == 'jaingqie_thumbup') {
@@ -219,12 +218,18 @@ function ajax_more_posts()
     $args = [
         'posts_per_page' => 10,
         'offset' => $start,
-        'orderby' => 'date'
+        'orderby' => 'date',
+        'post_status' => ['publish']
     ];
 
     if (isset($_POST['catid'])) {
         $catid = $_POST['catid'];
         $args['cat'] = $catid;
+    } else {
+        $home_cat_show = jiangqie_option('home_cat_show');
+        if (!empty($home_cat_show)) {
+            $args['category__in'] = implode(",", $home_cat_show);
+        }
     }
 
     if (isset($_POST['tagid'])) {

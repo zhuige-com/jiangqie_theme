@@ -52,6 +52,7 @@
     <img src="<?php echo get_stylesheet_directory_uri() . '/images/toTop.png'; ?>">
 </div>
 
+<div style="display: none;"><script><?php echo jiangqie_option('footer_statistics'); ?></script><div>
 </body>
 
 </html>

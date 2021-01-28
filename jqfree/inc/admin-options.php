@@ -253,10 +253,23 @@ CSF::createSection($prefix, array(
             'placeholder' => '请选择文章',
         ),
 
+        // array(
+        //     'id'          => 'home_cat_hide',
+        //     'type'        => 'select',
+        //     'title'       => '隐藏分类',
+        //     'chosen'      => true,
+        //     'multiple'    => true,
+        //     'sortable'    => true,
+        //     'ajax'        => true,
+        //     'placeholder' => 'Select an option',
+        //     'options'     => $categories,
+        //     'default'     => array()
+        // ),
+
         array(
-            'id'          => 'home_cat_hide',
+            'id'          => 'home_cat_show',
             'type'        => 'select',
-            'title'       => '隐藏分类',
+            'title'       => '显示分类',
             'chosen'      => true,
             'multiple'    => true,
             'sortable'    => true,
@@ -551,6 +564,16 @@ CSF::createSection($prefix, array(
             'title' => '页脚版权',
         ),
 
+        array(
+            'id'       => 'footer_statistics',
+            'type'     => 'code_editor',
+            'title'    => '网站统计',
+            'settings' => array(
+              'theme'  => 'dracula',
+              'mode'   => 'javascript',
+            ),
+            'default' =>'',
+          ),
     )
 ));
 
