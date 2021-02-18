@@ -3,8 +3,8 @@
 Template Name: 酱茄-友情链接
 */
 ?>
+
 <?php get_header(); ?>
-<!-- Column 1 /Content -->
 
 <div class="main-body mt-20">
 	<div class="container">

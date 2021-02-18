@@ -253,19 +253,6 @@ CSF::createSection($prefix, array(
             'placeholder' => '请选择文章',
         ),
 
-        // array(
-        //     'id'          => 'home_cat_hide',
-        //     'type'        => 'select',
-        //     'title'       => '隐藏分类',
-        //     'chosen'      => true,
-        //     'multiple'    => true,
-        //     'sortable'    => true,
-        //     'ajax'        => true,
-        //     'placeholder' => 'Select an option',
-        //     'options'     => $categories,
-        //     'default'     => array()
-        // ),
-
         array(
             'id'          => 'home_cat_show',
             'type'        => 'select',
@@ -576,22 +563,6 @@ CSF::createSection($prefix, array(
           ),
     )
 ));
-
-//
-// 边栏设置
-//
-// CSF::createSection($prefix, array(
-//     'title' => '边栏设置',
-//     'icon'  => 'fas fa-shield-alt',
-//     'fields' => array(
-
-//         array(
-//             'type'    => 'content',
-//             'content' => '酱茄Free主题 免费 好用',
-//         ),
-
-//     )
-// ));
 
 //
 // SEO设置

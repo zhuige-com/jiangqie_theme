@@ -7,8 +7,7 @@
 	<title><?php jiangqie_seo_title() ?></title>
 	<?php wp_head(); ?>
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=1">
-	<!-- 	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css">
- -->
+	<!-- <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
 	<script>
 		var gCatId = undefined;
 		var gTagId = undefined;

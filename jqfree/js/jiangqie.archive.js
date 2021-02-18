@@ -24,11 +24,11 @@ jQuery(document).ready(function ($) {
             action: 'ajax_more_posts',
             start: start
         };
-        
+
         if (gCatId) {
             params.catid = gCatId;
         }
-        
+
         if (gTagId) {
             params.tagid = gTagId;
         }
@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                 for (let i = 0; i < posts.length; i++) {
                     let post = posts[i];
                     let element = '';
-                    if (post.thumbnail ) {
+                    if (post.thumbnail) {
                         element = '<div class="post-div simple-item simple-left-side">'
                         element += '<div class="simple-img simple-left-img">'
                         element += '<a href="' + post.cat_link + '" title="' + post.cat_name + '">'
@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
                         if (post.stick) {
                             element += '<strong>置顶</strong>'
                         }
-                        
+
                         element += '<a href="' + post.link + '" title="">' + post.title + '</a>'
                         element += '</h2>'
                         element += '<p>' + post.excerpt + '</p>'
@@ -106,7 +106,7 @@ jQuery(document).ready(function ($) {
                         if (post.stick) {
                             element += '<strong>置顶</strong>'
                         }
-                        
+
                         element += '<a href="' + post.link + '" title="">' + post.title + '</a>'
                         element += '</h2>'
                         element += '<p>' + post.excerpt + '</p>'
@@ -139,7 +139,7 @@ jQuery(document).ready(function ($) {
                         }
 
                         element += '<cite>' + post.time + '</cite>'
-                        
+
                         element += '</p></div></div>'
                     }
                     tabbox.append(element);

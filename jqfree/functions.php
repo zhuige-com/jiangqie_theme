@@ -586,14 +586,6 @@ function jiangqie_favicon()
  */
 function jiangqie_nav_catsegories()
 {
-    // $home_cat_hide = jiangqie_option('home_cat_hide');
-    // if (!empty($home_cat_hide)) {
-    //     $home_cat_hide = implode(",", $home_cat_hide);
-    //     $args = ['exclude' => $home_cat_hide];
-    // } else {
-    //     $args = [];
-    // }
-
     $home_cat_show = jiangqie_option('home_cat_show');
     $categories = [];
     if (!empty($home_cat_show)) {

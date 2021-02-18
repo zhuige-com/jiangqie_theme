@@ -32,7 +32,6 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s')) - strtotime(get_the_time('Y-m-d G:
     <?php } else { ?>
 
         <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-<!--            <div class="comment-form-box comment-form-login">   登录前后增加判断，登录后增加comment-form-login-->
             <div class="comment-form-box <?php echo is_user_logged_in()?'comment-form-login':'' ?>">
                 <p class="comment-form-comment">
                     <label for="comment">评论</label>
@@ -40,7 +39,6 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s')) - strtotime(get_the_time('Y-m-d G:
                 </p>
 
                 <?php if (!is_user_logged_in()) { ?>
-<!--                     <p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span></p> -->
                     <ul>
                         <li class="comment-form-author"><label for="author">姓名 *</label> <input id="author" name="author" type="text" value="" size="30" maxlength="245"></li>
                         <li class="comment-form-email"><label for="email">电子邮件 *</label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes"></li>
@@ -59,9 +57,6 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s')) - strtotime(get_the_time('Y-m-d G:
 
     <?php } ?>
 </div>
-
-<?php //comment_form() 
-?>
 
 <h5 class="mb-20">评论信息</h5>
 <div class="content-comment mb-20">
