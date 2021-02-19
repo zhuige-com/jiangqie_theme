@@ -76,94 +76,6 @@ CSF::createSection($prefix, array(
 ));
 
 //
-// 布局颜色
-//
-// CSF::createSection($prefix, array(
-//     'title' => '布局颜色',
-//     'icon'  => 'fas fa-calendar',
-//     'fields' => array(
-
-//         array(
-//             'id'      => 'site_main_color',
-//             'type'    => 'color',
-//             'title'   => '主题主色',
-//             'default' => 'rgba(255,255,0,0.25)',
-//         ),
-
-//         array(
-//             'id'     => 'site_header_color',
-//             'type'   => 'fieldset',
-//             'title'  => '顶栏颜色',
-//             'fields' => array(
-//                 array(
-//                     'type'    => 'subheading',
-//                     'content' => '顶栏颜色',
-//                 ),
-//                 array(
-//                     'id'      => 'background',
-//                     'type'    => 'color',
-//                     'title'   => '背景',
-//                 ),
-//                 array(
-//                     'id'      => 'menu',
-//                     'type'    => 'color',
-//                     'title'   => '菜单',
-//                 ),
-//                 array(
-//                     'id'      => 'content',
-//                     'type'    => 'color',
-//                     'title'   => '内容',
-//                 ),
-//             ),
-//             'default' => array(
-//                 'background'    => '#1e73be',
-//                 'menu'          => '#1e73be',
-//                 'content'       => '#1e73be',
-//             )
-//         ),
-
-//         array(
-//             'id'     => 'site_footer_color',
-//             'type'   => 'fieldset',
-//             'title'  => '页脚颜色',
-//             'fields' => array(
-//                 array(
-//                     'type'    => 'subheading',
-//                     'content' => '页脚颜色',
-//                 ),
-//                 array(
-//                     'id'      => 'background',
-//                     'type'    => 'color',
-//                     'title'   => '背景',
-//                 ),
-//                 array(
-//                     'id'      => 'line',
-//                     'type'    => 'color',
-//                     'title'   => '线条',
-//                 ),
-//                 array(
-//                     'id'      => 'title',
-//                     'type'    => 'color',
-//                     'title'   => '标题',
-//                 ),
-//                 array(
-//                     'id'      => 'content',
-//                     'type'    => 'color',
-//                     'title'   => '内容',
-//                 ),
-//             ),
-//             'default' => array(
-//                 'background'    => '#1e73be',
-//                 'line'          => '#1e73be',
-//                 'title'         => '#1e73be',
-//                 'content'       => '#1e73be',
-//             )
-//         ),
-
-//     )
-// ));
-
-//
 // 首页设置
 //
 CSF::createSection($prefix, array(
@@ -196,20 +108,13 @@ CSF::createSection($prefix, array(
                     'validate' => 'csf_validate_url',
                 ),
             ),
-            'default' => array(
-                array(
-                    'opt-switcher' => false,
-                    'opt-color'    => '#3498db',
-                    'opt-text'     => 'Text default 1',
-                ),
-            ),
         ),
 
         array(
             'id'     => 'home_slide_ad',
             'type'   => 'repeater',
             'title'  => '幻灯片广告',
-            'min'    => 2,
+            'min'    => 0,
             'max'    => 2,
             'fields' => array(
                 array(
@@ -230,13 +135,6 @@ CSF::createSection($prefix, array(
                     'title'    => '广告链接',
                     'default'  => 'https://www.jiangqie.com',
                     'validate' => 'csf_validate_url',
-                ),
-            ),
-            'default' => array(
-                array(
-                    'opt-switcher' => false,
-                    'opt-color'    => '#3498db',
-                    'opt-text'     => 'Text default 1',
                 ),
             ),
         ),
@@ -490,13 +388,6 @@ CSF::createSection($prefix, array(
                     'validate' => 'csf_validate_url',
                 ),
             ),
-            'default' => array(
-                array(
-                    'opt-switcher' => false,
-                    'opt-color'    => '#3498db',
-                    'opt-text'     => 'Text default 1',
-                ),
-            ),
         ),
 
         array(
@@ -522,13 +413,6 @@ CSF::createSection($prefix, array(
                     'title'    => '链接',
                     'default'  => 'https://www.jiangqie.com',
                     'validate' => 'csf_validate_url',
-                ),
-            ),
-            'default' => array(
-                array(
-                    'opt-switcher' => false,
-                    'opt-color'    => '#3498db',
-                    'opt-text'     => 'Text default 1',
                 ),
             ),
         ),
