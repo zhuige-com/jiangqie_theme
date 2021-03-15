@@ -1393,6 +1393,55 @@ footer {
 .content-view {
 	overflow: hidden;
 }
+/*基础标签还原（也可根据需求自定义）*/
+.content-view h1, .content-view h2, .content-view h3, .content-view h4, .content-view h5 .content-view h6, .content-view strong {
+	font-weight: bold;
+}
+.content-view h1 {
+	font-size: 2em;
+	margin-block-start: 0.67em;
+	margin-block-end: 0.67em;
+}
+.content-view h2 {
+	font-size: 1.5em;
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+}
+.content-view h3 {
+	font-size: 1.17em;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+}
+.content-view h4 {
+	margin-block-start: 1.33em;
+	margin-block-end: 1.33em;
+}
+.content-view h5 {
+	font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+	border-left: 0; 
+    text-indent: 0;
+}
+.content-view h6 {
+	font-size: 0.67em;
+	margin-block-start: 2.33em;
+	margin-block-end: 2.33em;
+}
+.content-view em {
+	font-style: italic;
+}
+.content-view del {
+    text-decoration: line-through;
+}
+.content-view blockquote {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 40px;
+	margin-inline-end: 40px;
+}
+/*基础标签还原（也可根据需求自定义）*/
 
 .content-view p {
 	font-size: 13px;
