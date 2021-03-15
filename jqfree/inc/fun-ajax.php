@@ -98,6 +98,7 @@ function _getThumbnail($post_id, $post_content)
  */
 function _timeAgo($ptime)
 {
+    date_default_timezone_set("Asia/Shanghai");
     $ptime = strtotime($ptime);
     $etime = time() - $ptime;
     if ($etime < 1) return '刚刚';

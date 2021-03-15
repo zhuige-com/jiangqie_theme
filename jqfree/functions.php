@@ -161,6 +161,7 @@ function jiangqie_thumbnail_src_d($post_id, $post_content)
  */
 function jiangqie_time_ago($ptime)
 {
+    date_default_timezone_set("Asia/Shanghai");
     $ptime = strtotime($ptime);
     $etime = time() - $ptime;
     if ($etime < 1) return '刚刚';

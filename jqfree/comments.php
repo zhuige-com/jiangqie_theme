@@ -8,8 +8,8 @@ if (!comments_open()) {
     return;
 }
 
-date_default_timezone_set('PRC');
-$closeTimer = (strtotime(date('Y-m-d G:i:s')) - strtotime(get_the_time('Y-m-d G:i:s'))) / 86400;
+date_default_timezone_set("Asia/Shanghai");
+$closeTimer = (time() - strtotime(get_the_time('Y-m-d G:i:s'))) / 86400;
 
 ?>
 <h5 class="mb-20 mt-40">发表评论</h5>

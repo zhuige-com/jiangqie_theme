@@ -52,7 +52,7 @@
 												<!-- 评论数 -->
 												<?php jiangqie_post_list_comment_count(); ?>
 												<!-- 发布时间 -->
-												<cite><?php echo jiangqie_time_ago(get_gmt_from_date(get_the_time('Y-m-d G:i:s'))); ?></cite>
+												<cite><?php echo jiangqie_time_ago(get_the_time('Y-m-d G:i:s')); ?></cite>
 											</p>
 										</div>
 									</div>
@@ -88,7 +88,7 @@
 												<!-- 评论数 -->
 												<?php jiangqie_post_list_comment_count(); ?>
 												<!-- 发布时间 -->
-												<cite><?php echo jiangqie_time_ago(get_gmt_from_date(get_the_time('Y-m-d G:i:s'))); ?></cite>
+												<cite><?php echo jiangqie_time_ago(get_the_time('Y-m-d G:i:s')); ?></cite>
 											</p>
 										</div>
 									</div>
