@@ -105,27 +105,21 @@ jQuery(document).ready(function ($) {
 
     $('.nav-box>.nav-items .menu-item').mouseenter(function () {
         if ($(document).width() >= 1140) {
-            $(this).children('.sub-menu').slideDown();
+            $(this).children('.sub-menu').show();
         }
     });
 
     $('.nav-box>.nav-items .menu-item').mouseleave(function () {
         if ($(document).width() >= 1140) {
-            $(this).children('.sub-menu').slideUp();
+            $(this).children('.sub-menu').hide();
         }
     });
 
     $('.nav-box>.nav-items .menu-item').click(function () {
         if ($(document).width() < 1140) {
-            $(this).children('.sub-menu').slideToggle();
+            $(this).children('.sub-menu').toggle();
         }
     });
-
-    // $('.nav-box>.nav-items .menu-item').click(function () {
-    //     if ($(document).width() < 1140) {
-    //         $(this).children('.sub-menu').slideUp();
-    //     }
-    // });
 
     /* 二级菜单 -- start -- */
 
