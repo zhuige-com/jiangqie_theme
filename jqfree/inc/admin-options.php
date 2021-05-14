@@ -10,7 +10,7 @@
 $prefix = 'jiangqie_free';
 
 //分类信息
-$cats = get_categories( $args );
+$cats = get_categories([]);
 $categories = [];
 foreach ($cats as $cat) {
     $categories[$cat->term_id] = $cat->name;

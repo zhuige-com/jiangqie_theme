@@ -36,9 +36,9 @@
 												$list_switch_author_avatar = jiangqie_option('list_switch_author_avatar');
 												$list_switch_author_name = jiangqie_option('list_switch_author_name');
 												if ($list_switch_author_avatar || $list_switch_author_name) : ?>
-													<a href="<?php echo get_author_posts_url(get_the_author_id()); ?>" title="<?php the_author() ?>">
+													<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="<?php the_author() ?>">
 														<?php if ($list_switch_author_avatar) :
-															jiangqie_avatar(get_the_author_id());
+															jiangqie_avatar(get_the_author_meta('ID'));
 														endif; ?>
 														<?php if ($list_switch_author_name) : ?>
 															<em><?php the_author() ?></em>
@@ -72,9 +72,9 @@
 												$list_switch_author_avatar = jiangqie_option('list_switch_author_avatar');
 												$list_switch_author_name = jiangqie_option('list_switch_author_name');
 												if ($list_switch_author_avatar || $list_switch_author_name) : ?>
-													<a href="<?php echo get_author_posts_url(get_the_author_id()); ?>" title="<?php the_author() ?>">
+													<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="<?php the_author() ?>">
 														<?php if ($list_switch_author_avatar) :
-															jiangqie_avatar(get_the_author_id());
+															jiangqie_avatar(get_the_author_meta('ID'));
 														endif; ?>
 														<?php if ($list_switch_author_name) : ?>
 															<em><?php the_author() ?></em>

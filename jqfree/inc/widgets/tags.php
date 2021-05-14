@@ -12,11 +12,11 @@ function jiangqie_tags()
 
 class JQ_Widget_Tags extends WP_Widget
 {
-	function JQ_Widget_Tags()
+	function __construct()
 	{
 		$widget_ops = ['classname' => 'jaingqie-widget-tags', 'description' => '显示热门标签'];
 		$control_ops = [];
-		$this->WP_Widget('jaingqie-widget-tags', '酱茄-标签云', $widget_ops, $control_ops);
+		parent::__construct('jaingqie-widget-tags', '酱茄-标签云', $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance)

@@ -12,11 +12,11 @@ function jiangqie_hot_list()
 
 class JQ_Widget_HotList extends WP_Widget
 {
-	function JQ_Widget_HotList()
+	function __construct()
 	{
 		$widget_ops = ['classname' => 'jaingqie-widget-hot-list', 'description' => '热门文章'];
 		$control_ops = [];
-		$this->WP_Widget('jaingqie-widget-hot-list', '酱茄-热门文章', $widget_ops, $control_ops);
+		parent::__construct('jaingqie-widget-hot-list', '酱茄-热门文章', $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance)
@@ -103,7 +103,7 @@ function jiangqie_hot_posts_list($orderby, $limit, $cat, $img)
 		'cat'              => $cat,
 		'orderby'          => $orderby,
 		'showposts'        => $limit,
-		'caller_get_posts' => 1
+		'ignore_sticky_posts' => 1
 	);
 	query_posts($args);
 	while (have_posts()) : the_post();

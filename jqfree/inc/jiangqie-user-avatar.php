@@ -142,5 +142,5 @@ if (!class_exists('JiangQie_User_Avatar')) {
 	}
 }
 
-if (!$jiangqie_user_avatar)  
+if (!isset($jiangqie_user_avatar))
 	$jiangqie_user_avatar = new JiangQie_User_Avatar;

@@ -22,7 +22,7 @@
 									if ($detail_switch_author_avatar || $detail_switch_author_name) : ?>
 										<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="<?php the_author() ?>">
 											<?php if ($detail_switch_author_avatar) :
-												jiangqie_avatar(get_the_author_id());
+												jiangqie_avatar(get_the_author_meta('ID'));
 											endif; ?>
 											<?php if ($detail_switch_author_name) : ?>
 												<em><?php the_author() ?></em>
@@ -145,7 +145,7 @@
 								$args = array(
 									'post_status' => 'publish',
 									'post__not_in' => [$post->ID],
-									'caller_get_posts' => 1,
+									'ignore_sticky_posts' => 1,
 									'orderby' => 'comment_date',
 									'posts_per_page' => 3
 								);

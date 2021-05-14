@@ -12,11 +12,11 @@ function jiangqie_rand_list()
 
 class JQ_Widget_RandList extends WP_Widget
 {
-	function JQ_Widget_RandList()
+	function __construct()
 	{
 		$widget_ops = array('classname' => 'jaingqie-widget-rand-list', 'description' => '随机文章');
 		$control_ops = [];
-		$this->WP_Widget('jaingqie-widget-rand-list', '酱茄-猜你喜欢', $widget_ops, $control_ops);
+		parent::__construct('jaingqie-widget-rand-list', '酱茄-猜你喜欢', $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance)
@@ -29,7 +29,6 @@ class JQ_Widget_RandList extends WP_Widget
 		$orderby      = $instance['orderby'];
 		$more = $instance['more'];
 		$link = $instance['link'];
-		$img = $instance['img'];
 
 		$mo = '';
 		if ($more != '' && $link != '') {
@@ -37,7 +36,7 @@ class JQ_Widget_RandList extends WP_Widget
 		}
 		echo $before_widget;
 		echo $before_title . $title . $mo . $after_title;
-		echo jiangqie_rand_posts_list($orderby, $limit, $cat, $img);
+		echo jiangqie_rand_posts_list($orderby, $limit, $cat);
 		echo $after_widget;
 	}
 
@@ -85,25 +84,19 @@ class JQ_Widget_RandList extends WP_Widget
 				<input style="width:100%;" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="url" value="<?php echo $instance['link']; ?>" size="24" />
 			</label>
 		</p>
-		<p>
-			<label>
-				<input style="vertical-align:-3px;margin-right:4px;" class="checkbox" type="checkbox" <?php checked($instance['img'], 'on'); ?> id="<?php echo $this->get_field_id('img'); ?>" name="<?php echo $this->get_field_name('img'); ?>">显示图片
-			</label>
-		</p>
-
 	<?php
 	}
 }
 
 
-function jiangqie_rand_posts_list($orderby, $limit, $cat, $img)
+function jiangqie_rand_posts_list($orderby, $limit, $cat)
 {
 	$args = array(
 		'order'            => 'DESC',
 		'cat'              => $cat,
 		'orderby'          => $orderby,
 		'showposts'        => $limit,
-		'caller_get_posts' => 1
+		'ignore_sticky_posts' => 1
 	);
 	query_posts($args);
 	while (have_posts()) : the_post();
