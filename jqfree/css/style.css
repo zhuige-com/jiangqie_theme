@@ -804,6 +804,7 @@ footer {
     font-size: 14px;
     font-weight: 400;
     color: #2A2A2A;
+    word-break: keep-all;
 }
 
 .article-list .simple-img, .article-list .simple-img a, .article-list .simple-img a img {
