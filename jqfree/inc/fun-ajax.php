@@ -223,7 +223,13 @@ function ajax_more_posts()
         'post_status' => ['publish']
     ];
 
-    if (isset($_POST['catid'])) {
+    if (isset($_POST['tagid'])) {
+        $catid = $_POST['tagid'];
+        $args['tag_id'] = $catid;
+    } else if (isset($_POST['author'])) {
+        $author = $_POST['author'];
+        $args['author'] = $author;
+    } else if (isset($_POST['catid'])) {
         $catid = $_POST['catid'];
         $args['cat'] = $catid;
     } else {
@@ -231,16 +237,6 @@ function ajax_more_posts()
         if (!empty($home_cat_show)) {
             $args['category__in'] = implode(",", $home_cat_show);
         }
-    }
-
-    if (isset($_POST['tagid'])) {
-        $catid = $_POST['tagid'];
-        $args['tag_id'] = $catid;
-    }
-
-    if (isset($_POST['author'])) {
-        $author = $_POST['author'];
-        $args['author'] = $author;
     }
 
     $posts = _getPosts($args);
