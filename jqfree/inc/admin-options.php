@@ -25,14 +25,16 @@ CSF::createOptions($prefix, array(
     2
 ));
 
-$content = '酱茄Free主题 免费 好用';
-$res = wp_remote_get("https://key.jiangqie.com/api/goods/description?id=jq_theme_free", ['timeout' => 1]);
-if (!is_wp_error($res) && $res['response']['code'] == 200) {
-    $data = json_decode($res['body'], TRUE);
-    if ($data['code'] == 1) {
-        $content = $data['data'];
+$content = '欢迎使用酱茄Free主题! <br/><br/> 微信客服：jianbing2011 (加开源群、问题咨询、项目定制、购买咨询) <br/><br/> <a href="https://www.jiangqie.com/xz" target="_blank">更多免费产品</a>';
+if (stripos($_SERVER["REQUEST_URI"], 'jiangqie-free')) {
+    $res = wp_remote_get("https://key.jiangqie.com/api/goods/description?id=jq_theme_free", ['timeout' => 1]);
+    if (!is_wp_error($res) && $res['response']['code'] == 200) {
+        $data = json_decode($res['body'], TRUE);
+        if ($data['code'] == 1) {
+            $content = $data['data'];
+        }
     }
-} 
+}
 
 //
 // 概要
@@ -440,11 +442,11 @@ CSF::createSection($prefix, array(
             'type'     => 'code_editor',
             'title'    => '网站统计',
             'settings' => array(
-              'theme'  => 'dracula',
-              'mode'   => 'javascript',
+                'theme'  => 'dracula',
+                'mode'   => 'javascript',
             ),
-            'default' =>'',
-          ),
+            'default' => '',
+        ),
     )
 ));
 
