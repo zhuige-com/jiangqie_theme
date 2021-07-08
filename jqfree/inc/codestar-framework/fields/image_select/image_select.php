@@ -18,8 +18,11 @@ if ( ! class_exists( 'CSF_Field_image_select' ) ) {
 
       $args = wp_parse_args( $this->field, array(
         'multiple' => false,
+        'inline'   => false,
         'options'  => array(),
       ) );
+
+      $inline = ( $args['inline'] ) ? ' csf--inline-list' : '';
 
       $value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
 
@@ -27,7 +30,7 @@ if ( ! class_exists( 'CSF_Field_image_select' ) ) {
 
       if ( ! empty( $args['options'] ) ) {
 
-        echo '<div class="csf-siblings csf--image-group" data-multiple="'. esc_attr( $args['multiple'] ) .'">';
+        echo '<div class="csf-siblings csf--image-group'. esc_attr( $inline ) .'" data-multiple="'. esc_attr( $args['multiple'] ) .'">';
 
         $num = 1;
 
@@ -39,8 +42,10 @@ if ( ! class_exists( 'CSF_Field_image_select' ) ) {
           $checked = ( in_array( $key, $value ) ) ? ' checked' : '';
 
           echo '<div class="csf--sibling csf--image'. esc_attr( $active ) .'">';
-          echo '<img src="'. esc_url( $option ) .'" alt="img-'. esc_attr( $num++ ) .'" />';
-          echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
+            echo '<figure>';
+              echo '<img src="'. esc_url( $option ) .'" alt="img-'. esc_attr( $num++ ) .'" />';
+              echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
+            echo '</figure>';
           echo '</div>';
 
         }

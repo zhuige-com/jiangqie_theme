@@ -44,7 +44,7 @@ if ( ! class_exists( 'CSF_Field_button_set' ) ) {
 
             echo '<div class="csf--sibling csf--button'. esc_attr( $active ) .'">';
             echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name( $extra ) ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
-            echo wp_kses_post( $option );
+            echo $option;
             echo '</div>';
 
           }

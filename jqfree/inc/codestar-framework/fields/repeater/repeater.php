@@ -30,7 +30,7 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
         echo $this->field_before();
 
-        echo '<div class="csf-repeater-item csf-repeater-hidden">';
+        echo '<div class="csf-repeater-item csf-repeater-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
         echo '<div class="csf-repeater-content">';
         foreach ( $this->field['fields'] as $field ) {
 
@@ -88,7 +88,7 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
         echo '<div class="csf-repeater-alert csf-repeater-max">'. esc_html__( 'You cannot add more.', 'csf' ) .'</div>';
         echo '<div class="csf-repeater-alert csf-repeater-min">'. esc_html__( 'You cannot remove more.', 'csf' ) .'</div>';
-        echo '<a href="#" class="button button-primary csf-repeater-add">'. wp_kses_post( $args['button_title'] ) .'</a>';
+        echo '<a href="#" class="button button-primary csf-repeater-add">'. $args['button_title'] .'</a>';
 
         echo $this->field_after();
 

@@ -38,7 +38,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
         echo $this->field_before();
 
-        echo '<div class="csf-cloneable-item csf-cloneable-hidden">';
+        echo '<div class="csf-cloneable-item csf-cloneable-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
 
           echo '<div class="csf-cloneable-helper">';
           echo '<i class="csf-cloneable-sort fas fa-arrows-alt"></i>';
@@ -120,7 +120,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
         echo '<div class="csf-cloneable-alert csf-cloneable-max">'. esc_html__( 'You cannot add more.', 'csf' ) .'</div>';
         echo '<div class="csf-cloneable-alert csf-cloneable-min">'. esc_html__( 'You cannot remove more.', 'csf' ) .'</div>';
-        echo '<a href="#" class="button button-primary csf-cloneable-add">'. wp_kses_post( $args['button_title'] ) .'</a>';
+        echo '<a href="#" class="button button-primary csf-cloneable-add">'. $args['button_title'] .'</a>';
 
         echo $this->field_after();
 

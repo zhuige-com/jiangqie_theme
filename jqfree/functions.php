@@ -1,6 +1,5 @@
 <?php
 require_once get_theme_file_path() . '/inc/codestar-framework/codestar-framework.php';
-// require_once get_theme_file_path() . '/inc/codestar-framework/samples/admin-options.php';
 require_once get_theme_file_path() . '/inc/admin-options.php';
 require_once get_theme_file_path() . '/inc/fun-menus.php';
 require_once get_theme_file_path() . '/inc/fun-widgets.php';

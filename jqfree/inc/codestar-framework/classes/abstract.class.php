@@ -12,8 +12,6 @@ if ( ! class_exists( 'CSF_Abstract' ) ) {
 
     public $abstract   = '';
     public $output_css = '';
-    public $webfonts   = array();
-    public $subsets    = array();
 
     public function __construct() {
 
@@ -38,12 +36,10 @@ if ( ! class_exists( 'CSF_Abstract' ) ) {
           $field_type   = ( ! empty( $field['type'] ) ) ? $field['type'] : '';
           $field_output = ( ! empty( $field['output'] ) ) ? $field['output'] : '';
           $field_check  = ( $field_type === 'typography' || $field_output ) ? true : false;
+          $field_class  = 'CSF_Field_' . $field_type;
 
           if ( $field_type && $field_id ) {
 
-            CSF::maybe_include_field( $field_type );
-
-            $class_name = 'CSF_Field_' . $field_type;
 
             if( $field_type === 'fieldset' ) {
               if ( ! empty( $field['fields'] ) ) {
@@ -67,9 +63,9 @@ if ( ! class_exists( 'CSF_Abstract' ) ) {
               }
             }
 
-            if ( class_exists( $class_name ) ) {
+            if ( class_exists( $field_class ) ) {
 
-              if ( method_exists( $class_name, 'output' ) || method_exists( $class_name, 'enqueue_google_fonts' ) ) {
+              if ( method_exists( $field_class, 'output' ) || method_exists( $field_class, 'enqueue_google_fonts' ) ) {
 
                 $field_value = '';
 
@@ -85,7 +81,7 @@ if ( ! class_exists( 'CSF_Abstract' ) ) {
 
                   }
 
-                } else if ( $field_check && $this->abstract === 'metabox' && is_singular() ) {
+                } else if ( $field_check && ( $this->abstract === 'metabox' && is_singular() || $this->abstract === 'taxonomy' && is_archive() ) ) {
 
                   if( ! empty( $combine_field ) ) {
 
@@ -101,16 +97,14 @@ if ( ! class_exists( 'CSF_Abstract' ) ) {
 
                 }
 
-                $instance = new $class_name( $field, $field_value, $this->unique, 'wp/enqueue', $this );
+                $instance = new $field_class( $field, $field_value, $this->unique, 'wp/enqueue', $this );
 
                 // typography enqueue and embed google web fonts
                 if ( $field_type === 'typography' && $this->args['enqueue_webfont'] && ! empty( $field_value['font-family'] ) ) {
 
                   $method = ( ! empty( $this->args['async_webfont'] ) ) ? 'async' : 'enqueue';
-                  $family = $instance->enqueue_google_fonts();
 
-                  CSF::$webfonts[$method][$family] = ( ! empty( $this->webfonts[$family] ) ) ? $family . ':' . implode( ',', $this->webfonts[$family] ) : $family;
-                  CSF::$subsets = $this->subsets;
+                  $instance->enqueue_google_fonts( $method );
 
                 }
 

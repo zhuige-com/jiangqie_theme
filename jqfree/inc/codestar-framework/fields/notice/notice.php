@@ -18,7 +18,7 @@ if ( ! class_exists( 'CSF_Field_notice' ) ) {
 
       $style = ( ! empty( $this->field['style'] ) ) ? $this->field['style'] : 'normal';
 
-      echo ( ! empty( $this->field['content'] ) ) ? '<div class="csf-notice csf-notice-'. esc_attr( $style ) .'">'. wp_kses_post( $this->field['content'] ) .'</div>' : '';
+      echo ( ! empty( $this->field['content'] ) ) ? '<div class="csf-notice csf-notice-'. esc_attr( $style ) .'">'. $this->field['content'] .'</div>' : '';
 
     }
 

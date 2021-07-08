@@ -42,7 +42,7 @@ if ( ! class_exists( 'WP_Customize_Control_CSF' ) && class_exists( 'WP_Customize
     public $field  = '';
     public $unique = '';
 
-    protected function render() {
+    public function render() {
 
       $depend  = '';
       $visible = '';
@@ -84,14 +84,14 @@ if ( ! class_exists( 'WP_Customize_Control_CSF' ) && class_exists( 'WP_Customize
       $class = 'customize-control customize-control-'. $this->type . $visible;
 
       echo '<li id="'. esc_attr( $id ) .'" class="'. esc_attr( $class ) .'"'. $depend .'>';
-      $this->render_content();
+      $this->render_field_content();
       echo '</li>';
 
     }
 
-    public function render_content() {
+    public function render_field_content() {
 
-      $complex = array(
+      $complex = apply_filters( 'csf_customize_complex_fields', array(
         'accordion',
         'background',
         'border',
@@ -103,6 +103,7 @@ if ( ! class_exists( 'WP_Customize_Control_CSF' ) && class_exists( 'WP_Customize
         'fieldset',
         'group',
         'image_select',
+        'link',
         'link_color',
         'media',
         'palette',
@@ -113,7 +114,7 @@ if ( ! class_exists( 'WP_Customize_Control_CSF' ) && class_exists( 'WP_Customize
         'switcher',
         'tabbed',
         'typography'
-      );
+      ) );
 
       $field_id   = ( ! empty( $this->field['id'] ) ) ? $this->field['id'] : '';
       $custom     = ( ! empty( $this->field['customizer'] ) ) ? true : false;

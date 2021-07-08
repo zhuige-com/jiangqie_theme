@@ -66,8 +66,8 @@ if ( ! class_exists( 'CSF_Field_media' ) ) {
 
       echo '<div class="csf--placeholder">';
       echo '<input type="text" name="'. esc_attr( $this->field_name( '[url]' ) ) .'" value="'. esc_attr( $this->value['url'] ) .'" class="csf--url'. esc_attr( $hidden_url ) .'" readonly="readonly"'. $this->field_attributes() . $placeholder .' />';
-      echo '<a href="#" class="button button-primary csf--button" data-library="'. esc_attr( $library ) .'" data-preview-size="'. esc_attr( $args['preview_size'] ) .'">'. wp_kses_post( $args['button_title'] ) .'</a>';
-      echo ( empty( $args['preview'] ) ) ? '<a href="#" class="button button-secondary csf-warning-primary csf--remove'. esc_attr( $hidden_auto ) .'">'. wp_kses_post( $args['remove_title'] ) .'</a>' : '';
+      echo '<a href="#" class="button button-primary csf--button" data-library="'. esc_attr( $library ) .'" data-preview-size="'. esc_attr( $args['preview_size'] ) .'">'. $args['button_title'] .'</a>';
+      echo ( empty( $args['preview'] ) ) ? '<a href="#" class="button button-secondary csf-warning-primary csf--remove'. esc_attr( $hidden_auto ) .'">'. $args['remove_title'] .'</a>' : '';
       echo '</div>';
 
       echo '<input type="hidden" name="'. esc_attr( $this->field_name( '[id]' ) ) .'" value="'. esc_attr( $this->value['id'] ) .'" class="csf--id"/>';

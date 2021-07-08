@@ -20,9 +20,11 @@ foreach ($cats as $cat) {
 // Create options
 //
 CSF::createOptions($prefix, array(
+    'framework_title' => '酱茄Free主题 <small>by <a href="https://www.jiangqie.com" target="_blank" title="酱茄">www.jiangqie.com</a></small>',
     'menu_title' => '酱茄Free主题',
     'menu_slug'  => 'jiangqie-free',
-    2
+    'menu_position' => 2,
+    'footer_credit' => 'Thank you for creating with <a href="https://www.jiangqie.com/" target="_blank">酱茄</a>',
 ));
 
 $content = '欢迎使用酱茄Free主题! <br/><br/> 微信客服：jianbing2011 (加开源群、问题咨询、项目定制、购买咨询) <br/><br/> <a href="https://www.jiangqie.com/xz" target="_blank">更多免费产品</a>';

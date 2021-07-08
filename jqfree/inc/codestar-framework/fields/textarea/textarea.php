@@ -35,7 +35,7 @@ if ( ! class_exists( 'CSF_Field_textarea' ) ) {
 
             $button_title = CSF::$shortcode_instances[$instance_key]['button_title'];
 
-            echo '<a href="#" class="button button-primary csf-shortcode-button" data-modal-id="'. esc_attr( $instance_key ) .'">'. wp_kses_post( $button_title ) .'</a>';
+            echo '<a href="#" class="button button-primary csf-shortcode-button" data-modal-id="'. esc_attr( $instance_key ) .'">'. $button_title .'</a>';
 
           }
 

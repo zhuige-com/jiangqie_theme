@@ -16,7 +16,7 @@ if ( ! class_exists( 'CSF_Field_heading' ) ) {
 
     public function render() {
 
-      echo ( ! empty( $this->field['content'] ) ) ? wp_kses_post( $this->field['content'] ) : '';
+      echo ( ! empty( $this->field['content'] ) ) ? $this->field['content'] : '';
 
     }
 

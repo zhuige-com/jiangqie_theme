@@ -42,11 +42,22 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
         'word_spacing'       => false,
         'text_decoration'    => false,
         'custom_style'       => false,
+        'compact'            => false,
         'exclude'            => '',
         'unit'               => 'px',
         'line_height_unit'   => '',
         'preview_text'       => 'The quick brown fox jumps over the lazy dog',
       ) );
+
+      if ( $args['compact'] ) {
+        $args['text_transform'] = false;
+        $args['text_align']     = false;
+        $args['font_size']      = false;
+        $args['line_height']    = false;
+        $args['letter_spacing'] = false;
+        $args['preview']        = false;
+        $args['color']          = false;
+      }
 
       $default_value         = array(
         'font-family'        => '',
@@ -74,7 +85,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
       $chosen_class     = ( $this->chosen ) ? ' csf--chosen' : '';
       $line_height_unit = ( ! empty( $args['line_height_unit'] ) ) ? $args['line_height_unit'] : $args['unit'];
 
-      echo '<div class="csf--typography'. esc_attr( $chosen_class ) .'" data-unit="'. esc_attr( $args['unit'] ) .'" data-line-height-unit="'. esc_attr( $line_height_unit ) .'" data-exclude="'. esc_attr( $args['exclude'] ) .'">';
+      echo '<div class="csf--typography'. esc_attr( $chosen_class ) .'" data-depend-id="'. esc_attr( $this->field['id'] ) .'" data-unit="'. esc_attr( $args['unit'] ) .'" data-line-height-unit="'. esc_attr( $line_height_unit ) .'" data-exclude="'. esc_attr( $args['exclude'] ) .'">';
 
         echo '<div class="csf--blocks csf--blocks-selects">';
 
@@ -221,7 +232,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
             echo '<div class="csf--block">';
             echo '<div class="csf--title">'. esc_html__( 'Font Size', 'csf' ) .'</div>';
             echo '<div class="csf--input-wrap">';
-            echo '<input type="number" name="'. esc_attr( $this->field_name( '[font-size]' ) ) .'" class="csf--font-size csf--input csf-input-number" value="'. esc_attr( $this->value['font-size'] ) .'" />';
+            echo '<input type="number" name="'. esc_attr( $this->field_name( '[font-size]' ) ) .'" class="csf--font-size csf--input csf-input-number" value="'. esc_attr( $this->value['font-size'] ) .'" step="any" />';
             echo '<span class="csf--unit">'. esc_attr( $args['unit'] ) .'</span>';
             echo '</div>';
             echo '</div>';
@@ -233,7 +244,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
             echo '<div class="csf--block">';
             echo '<div class="csf--title">'. esc_html__( 'Line Height', 'csf' ) .'</div>';
             echo '<div class="csf--input-wrap">';
-            echo '<input type="number" name="'. esc_attr( $this->field_name( '[line-height]' ) ) .'" class="csf--line-height csf--input csf-input-number" value="'. esc_attr( $this->value['line-height'] ) .'" />';
+            echo '<input type="number" name="'. esc_attr( $this->field_name( '[line-height]' ) ) .'" class="csf--line-height csf--input csf-input-number" value="'. esc_attr( $this->value['line-height'] ) .'" step="any" />';
             echo '<span class="csf--unit">'. esc_attr( $line_height_unit ) .'</span>';
             echo '</div>';
             echo '</div>';
@@ -245,7 +256,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
             echo '<div class="csf--block">';
             echo '<div class="csf--title">'. esc_html__( 'Letter Spacing', 'csf' ) .'</div>';
             echo '<div class="csf--input-wrap">';
-            echo '<input type="number" name="'. esc_attr( $this->field_name( '[letter-spacing]' ) ) .'" class="csf--letter-spacing csf--input csf-input-number" value="'. esc_attr( $this->value['letter-spacing'] ) .'" />';
+            echo '<input type="number" name="'. esc_attr( $this->field_name( '[letter-spacing]' ) ) .'" class="csf--letter-spacing csf--input csf-input-number" value="'. esc_attr( $this->value['letter-spacing'] ) .'" step="any" />';
             echo '<span class="csf--unit">'. esc_attr( $args['unit'] ) .'</span>';
             echo '</div>';
             echo '</div>';
@@ -257,7 +268,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
             echo '<div class="csf--block">';
             echo '<div class="csf--title">'. esc_html__( 'Word Spacing', 'csf' ) .'</div>';
             echo '<div class="csf--input-wrap">';
-            echo '<input type="number" name="'. esc_attr( $this->field_name( '[word-spacing]' ) ) .'" class="csf--word-spacing csf--input csf-input-number" value="'. esc_attr( $this->value['word-spacing'] ) .'" />';
+            echo '<input type="number" name="'. esc_attr( $this->field_name( '[word-spacing]' ) ) .'" class="csf--word-spacing csf--input csf-input-number" value="'. esc_attr( $this->value['word-spacing'] ) .'" step="any" />';
             echo '<span class="csf--unit">'. esc_attr( $args['unit'] ) .'</span>';
             echo '</div>';
             echo '</div>';
@@ -413,7 +424,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
 
     }
 
-    public function enqueue_google_fonts() {
+    public function enqueue_google_fonts( $method = 'enqueue' ) {
 
       $is_google = false;
 
@@ -435,8 +446,10 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
           $style = $font_weight . $font_style;
           if ( ! empty( $style ) ) {
             $style = ( $style === 'normal' ) ? '400' : $style;
-            $this->parent->webfonts[$font_family][$style] = $style;
+            CSF::$webfonts[$method][$font_family][$style] = $style;
           }
+        } else {
+          CSF::$webfonts[$method][$font_family] = array();
         }
 
         // set extra styles
@@ -444,7 +457,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
           foreach ( $this->value['extra-styles'] as $extra_style ) {
             if ( ! empty( $extra_style ) ) {
               $extra_style = ( $extra_style === 'normal' ) ? '400' : $extra_style;
-              $this->parent->webfonts[$font_family][$extra_style] = $extra_style;
+              CSF::$webfonts[$method][$font_family][$extra_style] = $extra_style;
             }
           }
         }
@@ -454,12 +467,12 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
           $this->value['subset'] = ( is_array( $this->value['subset'] ) ) ? $this->value['subset'] : array_filter( (array) $this->value['subset'] );
           foreach ( $this->value['subset'] as $subset ) {
             if( ! empty( $subset ) ) {
-              $this->parent->subsets[$subset] = $subset;
+              CSF::$subsets[$subset] = $subset;
             }
           }
         }
 
-        return $font_family;
+        return true;
 
       }
 

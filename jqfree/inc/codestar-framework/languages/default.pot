@@ -1,306 +1,308 @@
-# Copyright (C) 2020 Codestar
+# Copyright (C) 2021 Codestar
 # This file is distributed under the same license as the Codestar Framework package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Codestar Framework 2.1.8\n"
+"Project-Id-Version: Codestar Framework 2.2.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/codestar-framework\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: classes/admin-options.class.php:224
+#: classes/admin-options.class.php:226
 msgid "Error while saving the changes."
 msgstr ""
 
-#: classes/admin-options.class.php:284
+#: classes/admin-options.class.php:286
 msgid "Settings successfully imported."
 msgstr ""
 
-#: classes/admin-options.class.php:296 classes/admin-options.class.php:312
+#: classes/admin-options.class.php:298 classes/admin-options.class.php:314
 msgid "Default settings restored."
 msgstr ""
 
-#: classes/admin-options.class.php:383
+#: classes/admin-options.class.php:385
 msgid "Settings saved."
 msgstr ""
 
-#: classes/admin-options.class.php:561
+#: classes/admin-options.class.php:565
 msgid "You have unsaved changes, save your changes!"
 msgstr ""
 
-#: classes/admin-options.class.php:563
+#: classes/admin-options.class.php:567
 msgid "show all settings"
 msgstr ""
 
-#: classes/admin-options.class.php:565 fields/icon/icon.php:57
+#: classes/admin-options.class.php:569 fields/icon/icon.php:57
 #: fields/map/map.php:23
 msgid "Search..."
 msgstr ""
 
-#: classes/admin-options.class.php:568 classes/admin-options.class.php:691
+#: classes/admin-options.class.php:572 classes/admin-options.class.php:695
 msgid "Save"
 msgstr ""
 
-#: classes/admin-options.class.php:568 classes/admin-options.class.php:691
+#: classes/admin-options.class.php:572 classes/admin-options.class.php:695
 msgid "Saving..."
 msgstr ""
 
-#: classes/admin-options.class.php:569 classes/admin-options.class.php:692
+#: classes/admin-options.class.php:573 classes/admin-options.class.php:696
 msgid "Reset Section"
 msgstr ""
 
-#: classes/admin-options.class.php:569 classes/admin-options.class.php:692
+#: classes/admin-options.class.php:573 classes/admin-options.class.php:696
 msgid "Are you sure to reset this section options?"
 msgstr ""
 
-#: classes/admin-options.class.php:570 classes/admin-options.class.php:693
+#: classes/admin-options.class.php:574 classes/admin-options.class.php:697
 msgid "Reset All"
 msgstr ""
 
-#: classes/admin-options.class.php:570 classes/admin-options.class.php:693
-#: classes/comment-options.class.php:213 classes/metabox-options.class.php:282
+#: classes/admin-options.class.php:574 classes/admin-options.class.php:697
+#: classes/comment-options.class.php:215 classes/metabox-options.class.php:293
 #: fields/backup/backup.php:31
 msgid "Reset"
 msgstr ""
 
-#: classes/admin-options.class.php:570 classes/admin-options.class.php:693
+#: classes/admin-options.class.php:574 classes/admin-options.class.php:697
 msgid "Are you sure you want to reset all settings to default values?"
 msgstr ""
 
-#: classes/admin-options.class.php:668 classes/comment-options.class.php:196
-#: classes/metabox-options.class.php:265 fields/button_set/button_set.php:56
+#: classes/admin-options.class.php:672 classes/comment-options.class.php:198
+#: classes/metabox-options.class.php:276 fields/button_set/button_set.php:56
 #: fields/checkbox/checkbox.php:76 fields/radio/radio.php:75
 #: fields/select/select.php:113 functions/actions.php:41
 msgid "No data available."
 msgstr ""
 
-#: classes/comment-options.class.php:214 classes/metabox-options.class.php:283
+#: classes/comment-options.class.php:216 classes/metabox-options.class.php:294
 msgid "update post"
 msgstr ""
 
-#: classes/comment-options.class.php:214 classes/metabox-options.class.php:283
+#: classes/comment-options.class.php:216 classes/metabox-options.class.php:294
 msgid "Cancel"
 msgstr ""
 
-#: classes/setup.class.php:529
+#: classes/setup.class.php:592
 msgid "Are you sure?"
 msgstr ""
 
-#: classes/setup.class.php:530
+#: classes/setup.class.php:593
 msgid "Please enter %s or more characters"
 msgstr ""
 
-#: classes/setup.class.php:531
+#: classes/setup.class.php:594
 msgid "Searching..."
 msgstr ""
 
-#: classes/setup.class.php:532
+#: classes/setup.class.php:595
 msgid "No results found."
 msgstr ""
 
-#: classes/setup.class.php:615
+#: classes/setup.class.php:696
 msgid "Oops! Not allowed."
 msgstr ""
 
-#: classes/setup.class.php:689 classes/setup.class.php:693
+#: classes/setup.class.php:768 classes/setup.class.php:772
 msgid "Field not found!"
 msgstr ""
 
-#: classes/shortcode-options.class.php:251
-msgid "Add one more"
+#: classes/shortcode-options.class.php:251 fields/group/group.php:23
+msgid "Add New"
 msgstr ""
 
-#: classes/shortcode-options.class.php:288
-msgid "Error: Nonce verification has failed. Please try again."
+#: classes/shortcode-options.class.php:288 functions/actions.php:16
+#: functions/actions.php:68 functions/actions.php:106 functions/actions.php:141
+#: functions/actions.php:170
+msgid "Error: Invalid nonce verification."
 msgstr ""
 
-#: fields/background/background.php:35 fields/media/media.php:57
+#: fields/background/background.php:36 fields/media/media.php:57
 msgid "Not selected"
 msgstr ""
 
-#: fields/background/background.php:66 fields/date/date.php:31
+#: fields/background/background.php:72 fields/date/date.php:31
 msgid "From"
 msgstr ""
 
-#: fields/background/background.php:84 fields/date/date.php:32
+#: fields/background/background.php:90 fields/date/date.php:32
 msgid "To"
 msgstr ""
 
-#: fields/background/background.php:102
+#: fields/background/background.php:108
 msgid "Direction"
 msgstr ""
 
-#: fields/background/background.php:108
+#: fields/background/background.php:114
 msgid "Gradient Direction"
 msgstr ""
 
-#: fields/background/background.php:109
+#: fields/background/background.php:115
 msgid "&#8659; top to bottom"
 msgstr ""
 
-#: fields/background/background.php:110
+#: fields/background/background.php:116
 msgid "&#8658; left to right"
 msgstr ""
 
-#: fields/background/background.php:111
+#: fields/background/background.php:117
 msgid "&#8664; corner top to right"
 msgstr ""
 
-#: fields/background/background.php:112
+#: fields/background/background.php:118
 msgid "&#8665; corner top to left"
 msgstr ""
 
-#: fields/background/background.php:155
+#: fields/background/background.php:161
 msgid "Background Position"
 msgstr ""
 
-#: fields/background/background.php:156
+#: fields/background/background.php:162
 msgid "Left Top"
 msgstr ""
 
-#: fields/background/background.php:157
+#: fields/background/background.php:163
 msgid "Left Center"
 msgstr ""
 
-#: fields/background/background.php:158
+#: fields/background/background.php:164
 msgid "Left Bottom"
 msgstr ""
 
-#: fields/background/background.php:159
+#: fields/background/background.php:165
 msgid "Center Top"
 msgstr ""
 
-#: fields/background/background.php:160
+#: fields/background/background.php:166
 msgid "Center Center"
 msgstr ""
 
-#: fields/background/background.php:161
+#: fields/background/background.php:167
 msgid "Center Bottom"
 msgstr ""
 
-#: fields/background/background.php:162
+#: fields/background/background.php:168
 msgid "Right Top"
 msgstr ""
 
-#: fields/background/background.php:163
+#: fields/background/background.php:169
 msgid "Right Center"
 msgstr ""
 
-#: fields/background/background.php:164
+#: fields/background/background.php:170
 msgid "Right Bottom"
 msgstr ""
 
-#: fields/background/background.php:178
+#: fields/background/background.php:184
 msgid "Background Repeat"
 msgstr ""
 
-#: fields/background/background.php:179
+#: fields/background/background.php:185
 msgid "Repeat"
 msgstr ""
 
-#: fields/background/background.php:180
+#: fields/background/background.php:186
 msgid "No Repeat"
 msgstr ""
 
-#: fields/background/background.php:181
+#: fields/background/background.php:187
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: fields/background/background.php:182
+#: fields/background/background.php:188
 msgid "Repeat Vertically"
 msgstr ""
 
-#: fields/background/background.php:196
+#: fields/background/background.php:202
 msgid "Background Attachment"
 msgstr ""
 
-#: fields/background/background.php:197
+#: fields/background/background.php:203
 msgid "Scroll"
 msgstr ""
 
-#: fields/background/background.php:198
+#: fields/background/background.php:204
 msgid "Fixed"
 msgstr ""
 
-#: fields/background/background.php:212
+#: fields/background/background.php:218
 msgid "Background Size"
 msgstr ""
 
-#: fields/background/background.php:213
+#: fields/background/background.php:219
 msgid "Cover"
 msgstr ""
 
-#: fields/background/background.php:214
+#: fields/background/background.php:220
 msgid "Contain"
 msgstr ""
 
-#: fields/background/background.php:215
+#: fields/background/background.php:221
 msgid "Auto"
 msgstr ""
 
-#: fields/background/background.php:229
+#: fields/background/background.php:235
 msgid "Background Origin"
 msgstr ""
 
-#: fields/background/background.php:230 fields/background/background.php:248
+#: fields/background/background.php:236 fields/background/background.php:254
 msgid "Padding Box"
 msgstr ""
 
-#: fields/background/background.php:231 fields/background/background.php:247
+#: fields/background/background.php:237 fields/background/background.php:253
 msgid "Border Box"
 msgstr ""
 
-#: fields/background/background.php:232 fields/background/background.php:249
+#: fields/background/background.php:238 fields/background/background.php:255
 msgid "Content Box"
 msgstr ""
 
-#: fields/background/background.php:246
+#: fields/background/background.php:252
 msgid "Background Clip"
 msgstr ""
 
-#: fields/background/background.php:263
+#: fields/background/background.php:269
 msgid "Background Blend Mode"
 msgstr ""
 
-#: fields/background/background.php:264 fields/link_color/link_color.php:36
-#: fields/typography/typography.php:175
+#: fields/background/background.php:270 fields/link_color/link_color.php:36
+#: fields/typography/typography.php:186
 msgid "Normal"
 msgstr ""
 
-#: fields/background/background.php:265
+#: fields/background/background.php:271
 msgid "Multiply"
 msgstr ""
 
-#: fields/background/background.php:266
+#: fields/background/background.php:272
 msgid "Screen"
 msgstr ""
 
-#: fields/background/background.php:267
+#: fields/background/background.php:273
 msgid "Overlay"
 msgstr ""
 
-#: fields/background/background.php:268
+#: fields/background/background.php:274
 msgid "Darken"
 msgstr ""
 
-#: fields/background/background.php:269
+#: fields/background/background.php:275
 msgid "Lighten"
 msgstr ""
 
-#: fields/background/background.php:270
+#: fields/background/background.php:276
 msgid "Color Dodge"
 msgstr ""
 
-#: fields/background/background.php:271
+#: fields/background/background.php:277
 msgid "Saturation"
 msgstr ""
 
-#: fields/background/background.php:272
+#: fields/background/background.php:278
 msgid "Color"
 msgstr ""
 
-#: fields/background/background.php:273
+#: fields/background/background.php:279
 msgid "Luminosity"
 msgstr ""
 
@@ -332,19 +334,19 @@ msgstr ""
 msgid "all"
 msgstr ""
 
-#: fields/border/border.php:51 fields/typography/typography.php:203
+#: fields/border/border.php:51 fields/typography/typography.php:214
 msgid "Solid"
 msgstr ""
 
-#: fields/border/border.php:52 fields/typography/typography.php:206
+#: fields/border/border.php:52 fields/typography/typography.php:217
 msgid "Dashed"
 msgstr ""
 
-#: fields/border/border.php:53 fields/typography/typography.php:205
+#: fields/border/border.php:53 fields/typography/typography.php:216
 msgid "Dotted"
 msgstr ""
 
-#: fields/border/border.php:54 fields/typography/typography.php:204
+#: fields/border/border.php:54 fields/typography/typography.php:215
 msgid "Double"
 msgstr ""
 
@@ -364,8 +366,8 @@ msgstr ""
 msgid "ridge"
 msgstr ""
 
-#: fields/border/border.php:59 fields/typography/typography.php:188
-#: fields/typography/typography.php:202
+#: fields/border/border.php:59 fields/typography/typography.php:199
+#: fields/typography/typography.php:213
 msgid "None"
 msgstr ""
 
@@ -387,10 +389,6 @@ msgstr ""
 
 #: fields/gallery/gallery.php:22
 msgid "Clear"
-msgstr ""
-
-#: fields/group/group.php:23
-msgid "Add New"
 msgstr ""
 
 #: fields/group/group.php:35 fields/repeater/repeater.php:27
@@ -416,6 +414,18 @@ msgstr ""
 
 #: fields/icon/icon.php:21
 msgid "Remove Icon"
+msgstr ""
+
+#: fields/link/link.php:20
+msgid "Add Link"
+msgstr ""
+
+#: fields/link/link.php:21
+msgid "Edit Link"
+msgstr ""
+
+#: fields/link/link.php:22
+msgid "Remove Link"
 msgstr ""
 
 #: fields/link_color/link_color.php:37
@@ -466,148 +476,143 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
-#: fields/typography/typography.php:85
+#: fields/typography/typography.php:96
 msgid "Font Family"
 msgstr ""
 
-#: fields/typography/typography.php:86
+#: fields/typography/typography.php:97
 msgid "Select a font"
 msgstr ""
 
-#: fields/typography/typography.php:94
+#: fields/typography/typography.php:105
 msgid "Backup Font Family"
 msgstr ""
 
-#: fields/typography/typography.php:108 fields/typography/typography.php:121
-#: fields/typography/typography.php:134 fields/typography/typography.php:149
-#: fields/typography/typography.php:165 fields/typography/typography.php:178
-#: fields/typography/typography.php:192 fields/typography/typography.php:210
+#: fields/typography/typography.php:119 fields/typography/typography.php:132
+#: fields/typography/typography.php:145 fields/typography/typography.php:160
+#: fields/typography/typography.php:176 fields/typography/typography.php:189
+#: fields/typography/typography.php:203 fields/typography/typography.php:221
 msgid "Default"
 msgstr ""
 
-#: fields/typography/typography.php:119
+#: fields/typography/typography.php:130
 msgid "Font Style"
 msgstr ""
 
-#: fields/typography/typography.php:133 fields/typography/typography.php:134
+#: fields/typography/typography.php:144 fields/typography/typography.php:145
 msgid "Load Extra Styles"
 msgstr ""
 
-#: fields/typography/typography.php:147
+#: fields/typography/typography.php:158
 msgid "Subset"
 msgstr ""
 
-#: fields/typography/typography.php:157
+#: fields/typography/typography.php:168
 msgid "Text Align"
 msgstr ""
 
-#: fields/typography/typography.php:159
+#: fields/typography/typography.php:170
 msgid "Inherit"
 msgstr ""
 
-#: fields/typography/typography.php:160
+#: fields/typography/typography.php:171
 msgid "Left"
 msgstr ""
 
-#: fields/typography/typography.php:161
+#: fields/typography/typography.php:172
 msgid "Center"
 msgstr ""
 
-#: fields/typography/typography.php:162
+#: fields/typography/typography.php:173
 msgid "Right"
 msgstr ""
 
-#: fields/typography/typography.php:163
+#: fields/typography/typography.php:174
 msgid "Justify"
 msgstr ""
 
-#: fields/typography/typography.php:164
+#: fields/typography/typography.php:175
 msgid "Initial"
 msgstr ""
 
-#: fields/typography/typography.php:173
+#: fields/typography/typography.php:184
 msgid "Font Variant"
 msgstr ""
 
-#: fields/typography/typography.php:176
+#: fields/typography/typography.php:187
 msgid "Small Caps"
 msgstr ""
 
-#: fields/typography/typography.php:177
+#: fields/typography/typography.php:188
 msgid "All Small Caps"
 msgstr ""
 
-#: fields/typography/typography.php:186
+#: fields/typography/typography.php:197
 msgid "Text Transform"
 msgstr ""
 
-#: fields/typography/typography.php:189
+#: fields/typography/typography.php:200
 msgid "Capitalize"
 msgstr ""
 
-#: fields/typography/typography.php:190
+#: fields/typography/typography.php:201
 msgid "Uppercase"
 msgstr ""
 
-#: fields/typography/typography.php:191
+#: fields/typography/typography.php:202
 msgid "Lowercase"
 msgstr ""
 
-#: fields/typography/typography.php:200
+#: fields/typography/typography.php:211
 msgid "Text Decoration"
 msgstr ""
 
-#: fields/typography/typography.php:207
+#: fields/typography/typography.php:218
 msgid "Wavy"
 msgstr ""
 
-#: fields/typography/typography.php:208
+#: fields/typography/typography.php:219
 msgid "Overline"
 msgstr ""
 
-#: fields/typography/typography.php:209
+#: fields/typography/typography.php:220
 msgid "Line-through"
 msgstr ""
 
-#: fields/typography/typography.php:222
+#: fields/typography/typography.php:233
 msgid "Font Size"
 msgstr ""
 
-#: fields/typography/typography.php:234
+#: fields/typography/typography.php:245
 msgid "Line Height"
 msgstr ""
 
-#: fields/typography/typography.php:246
+#: fields/typography/typography.php:257
 msgid "Letter Spacing"
 msgstr ""
 
-#: fields/typography/typography.php:258
+#: fields/typography/typography.php:269
 msgid "Word Spacing"
 msgstr ""
 
-#: fields/typography/typography.php:273
+#: fields/typography/typography.php:284
 msgid "Font Color"
 msgstr ""
 
-#: fields/typography/typography.php:284
+#: fields/typography/typography.php:295
 msgid "Custom Style"
 msgstr ""
 
-#: fields/typography/typography.php:351
+#: fields/typography/typography.php:362
 msgid "Custom Web Fonts"
 msgstr ""
 
-#: fields/typography/typography.php:357
+#: fields/typography/typography.php:368
 msgid "Safe Web Fonts"
 msgstr ""
 
-#: fields/typography/typography.php:377
+#: fields/typography/typography.php:388
 msgid "Google Web Fonts"
-msgstr ""
-
-#: functions/actions.php:16 functions/actions.php:68 functions/actions.php:106
-#: functions/actions.php:141 functions/actions.php:170
-msgid "Error: Invalid nonce verification."
 msgstr ""
 
 #: functions/actions.php:72 functions/actions.php:110
