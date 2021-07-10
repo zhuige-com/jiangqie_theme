@@ -28,13 +28,6 @@ jQuery(document).ready(function ($) {
 
     /** -- 打赏 -- start -- */
     $('.btn-reward').click(function () {
-        // $.post("/wp-admin/admin-ajax.php", {
-        //     action: "jaingqie_reward",
-        // }, function (data) {
-        //     $('.count').html(data);
-        // });
-        // layer.alert('内容')
-
         layer.open({
             type: 1,
             title: false,

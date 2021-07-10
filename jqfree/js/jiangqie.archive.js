@@ -3,8 +3,6 @@
  */
 
 jQuery(document).ready(function ($) {
-
-    // var gCatId = '';
     var loading = false;
     var nomore = false;
 
@@ -41,9 +39,6 @@ jQuery(document).ready(function ($) {
             function (posts, status) {
                 nomore = posts.length < 10;
 
-                // console.log(posts);
-                // console.log($('.post-div').length);
-                // alert("Data: " + data + "\nStatus: " + status);
                 let tabbox = $('.base-box');
 
                 for (let i = 0; i < posts.length; i++) {

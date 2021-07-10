@@ -35,14 +35,9 @@
 jQuery(document).ready(function ($) {
     /** -- 导航悬停 -- start -- */
     $.fn.stick = function () {
-        var $cur = this,
-            curH = $cur.height(),
-            curW = $cur.width(),
-            offsetTop = $cur.offset().top,
-            offsetLeft = $cur.offset().left,p
-            var paddingLeft = parseInt($cur.css('paddingLeft'));
-            var paddingRight = parseInt($cur.css('paddingRight')); 
-            isFixed = false;
+        var $cur = this;
+        var offsetTop = $cur.offset().top;
+        var isFixed = false;
 
         //  克隆元素，用于占位
         var $curClone = $cur.clone()
@@ -68,13 +63,10 @@ jQuery(document).ready(function ($) {
             $cur.css({
                 "box-shadow": "0px 0px 2px 3px rgba(99,99,99,0.1)",
                 "position": "fixed",
-                "width": '100%',
                 'max-width': 'none',
                 "top": offsetTop,
                 "left": 0,
                 "margin": 0,
-                'padding-left': offsetLeft + paddingLeft,
-                'padding-right': offsetLeft + paddingRight,
                 "z-index": 100,
             });
             $curClone.show();
@@ -144,35 +136,31 @@ jQuery(document).ready(function ($) {
     let gLastAside = $(".aside-block:last");
     var gFixedLimit = gLastAside.offset().top + gLastAside.height();
     $(window).resize(function () {
+        $('.widgetRoller').remove();
         gLastAside = $(".aside-block:last");
         gFixedLimit = gLastAside.offset().top + gLastAside.height();
     });
 
     $(window).scroll(function (event) {
         let scrollTop = $(this).scrollTop();
-        // console.log(scrollTop);
         if (scrollTop > gFixedLimit) {
             if ($('.widgetRoller').length == 0) { 
                 gLastAside.parent().append('<div class="widgetRoller"></div>'); 
                 gLastAside.clone().appendTo('.widgetRoller');
             }
 
-            // console.log($('#top-nav-wraper').height())
-
             let top = $('#top-nav-wraper').offset().top + $('#top-nav-wraper').height();
             let bottom = $('footer').offset().top;
             let offset = scrollTop + top + 10 + gLastAside.height() + 10 - bottom;
             
             if (offset > 0) {
-                $('.widgetRoller').css({ position: "fixed", top: top - 30 - offset, zIndex: 99, width: gLastAside.width() });
+                $('.widgetRoller').css({ position: "fixed", top: top - 30 - offset, zIndex: 99, width: gLastAside.parent().width() });
             } else {
-                $('.widgetRoller').css({ position: "fixed", top: top + 10, zIndex: 99, width: gLastAside.width() });
+                $('.widgetRoller').css({ position: "fixed", top: top + 10, zIndex: 99, width: gLastAside.parent().width() });
             }
             
-            // gLastAside.hide();
             $('.widgetRoller').fadeIn(300)
         } else {
-            // gLastAside.show();
             $('.widgetRoller').hide() 
         }
     });
