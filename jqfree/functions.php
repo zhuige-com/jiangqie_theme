@@ -128,6 +128,36 @@ function jiangqie_setup()
 }
 add_action('after_setup_theme', 'jiangqie_setup');
 
+add_action('admin_init', 'jiangqie_theme_free_on_admin_init');
+add_action('admin_menu', 'jiangqie_theme_free_add_admin_menu', 20);
+function jiangqie_theme_free_add_admin_menu()
+{
+    add_submenu_page('jiangqie-free', '', '安装文档', 'manage_options', 'jiangqie_theme_free_setup', 'jiangqie_theme_free_handle_external_redirects');
+    add_submenu_page('jiangqie-free', '', '专业版主题', 'manage_options', 'jiangqie_theme_free_upgrade', 'jiangqie_theme_free_handle_external_redirects');
+}
+
+function jiangqie_theme_free_on_admin_init()
+{
+    jiangqie_theme_free_handle_external_redirects();
+}
+
+function jiangqie_theme_free_handle_external_redirects()
+{
+    if (empty($_GET['page'])) {
+        return;
+    }
+
+    if ('jiangqie_theme_free_setup' === $_GET['page']) {
+        wp_redirect('https://www.jiangqie.com/theme/6177.html');
+        die;
+    }
+
+    if ('jiangqie_theme_free_upgrade' === $_GET['page']) {
+        wp_redirect('https://pro.jiangqie.com');
+        die;
+    }
+}
+
 /**
  * 缩略图
  */
@@ -422,17 +452,17 @@ function home_post_recommend()
     $hots = [];
     $query = new WP_Query();
     $result = $query->query($args);
-	foreach ($result as $post) {
-		$thumbnail = jiangqie_thumbnail_src_d($post->ID, $post->post_content);
-		if (empty($thumbnail)) {
-			$thumbnail = get_stylesheet_directory_uri() . '/images/jiangqie.png';
-		}
-		$hots[] = [
-			'id' => $post->ID,
-			'title' => $post->post_title,
-			'thumbnail' => $thumbnail
-		];
-	}
+    foreach ($result as $post) {
+        $thumbnail = jiangqie_thumbnail_src_d($post->ID, $post->post_content);
+        if (empty($thumbnail)) {
+            $thumbnail = get_stylesheet_directory_uri() . '/images/jiangqie.png';
+        }
+        $hots[] = [
+            'id' => $post->ID,
+            'title' => $post->post_title,
+            'thumbnail' => $thumbnail
+        ];
+    }
 
     if (empty($hots)) {
         return false;
@@ -453,7 +483,7 @@ function footer_hot_recommend()
 
     $args = [
         'post__in' => $hot_ids,
-		'orderby' => 'post__in',
+        'orderby' => 'post__in',
         'posts_per_page' => -1,
         'ignore_sticky_posts' => 1
     ];
@@ -461,12 +491,12 @@ function footer_hot_recommend()
     $hots = [];
     $query = new WP_Query();
     $result = $query->query($args);
-	foreach ($result as $post) {
-		$hots[] = [
-			'id' => $post->ID,
-			'title' => $post->post_title
-		];
-	}
+    foreach ($result as $post) {
+        $hots[] = [
+            'id' => $post->ID,
+            'title' => $post->post_title
+        ];
+    }
 
     if (empty($hots)) {
         return false;
@@ -594,7 +624,7 @@ function jiangqie_nav_catsegories()
         $result = get_categories($args);
         foreach ($home_cat_show as $cat_id) {
             foreach ($result as $cat) {
-                if($cat_id == $cat->term_id) {
+                if ($cat_id == $cat->term_id) {
                     $categories[] = $cat;
                 }
             }
