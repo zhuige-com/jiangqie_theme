@@ -59,7 +59,7 @@
 	<script>
 		<?php echo jiangqie_option('footer_statistics'); ?>
 	</script>
-	<div>
-		</body>
+</div>
 
-		</html>
+</body>
+</html>

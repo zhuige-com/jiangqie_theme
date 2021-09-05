@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
  */
@@ -91,7 +92,7 @@ class JQ_Widget_HotList extends WP_Widget
 			</label>
 		</p>
 
-	<?php
+		<?php
 	}
 }
 
@@ -108,33 +109,33 @@ function jiangqie_hot_posts_list($orderby, $limit, $cat, $img)
 	query_posts($args);
 	while (have_posts()) : the_post();
 		$thumbnail = jiangqie_thumbnail_src();
-		if (!empty($thumbnail)) : 
-	?>
-		<div class="simple-item simple-left-side">
-			<div class="simple-img simple-left-img">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<img alt="" src="<?php echo $thumbnail; ?>" />
-				</a>
+		if (!empty($thumbnail)) :
+		?>
+			<div class="simple-item simple-left-side">
+				<div class="simple-img simple-left-img">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+						<img alt="" src="<?php echo $thumbnail; ?>" />
+					</a>
+				</div>
+				<div class="simple-content">
+					<p>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					</p>
+					<p class="simple-time"><?php the_time('Y-m-d'); ?></p>
+				</div>
 			</div>
-			<div class="simple-content">
-				<p>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</p>
-				<p class="simple-time"><?php the_time('Y-m-d'); ?></p>
+		<?php else : ?>
+			<div class="simple-item">
+				<!--无图单文字列表块-->
+				<div class="simple-content">
+					<p>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					</p>
+					<p class="simple-time"><?php the_time('Y-m-d'); ?></p>
+				</div>
 			</div>
-		</div>
-<?php else : ?>
-		<div class="simple-item">
-			<!--无图单文字列表块-->
-			<div class="simple-content">
-				<p>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</p>
-				<p class="simple-time"><?php the_time('Y-m-d'); ?></p>
-			</div>
-		</div>
 <?php
-	endif;
+		endif;
 
 	endwhile;
 	wp_reset_query();

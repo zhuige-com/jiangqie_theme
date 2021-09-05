@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
  */
@@ -36,7 +37,7 @@ class JQ_Widget_Tags extends WP_Widget
 
 		echo $before_widget;
 
-		echo $before_title. $title . $mo . $after_title;
+		echo $before_title . $title . $mo . $after_title;
 		echo '<div class="tag-list">';
 		$tags_list = get_tags('orderby=count&order=DESC&number=' . $count . '&offset=' . $offset);
 		if ($tags_list) {

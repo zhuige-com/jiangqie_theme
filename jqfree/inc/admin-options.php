@@ -1,4 +1,6 @@
-<?php if ( ! defined( 'ABSPATH' )  ) { die; } // Cannot access directly.
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
 
 /**
  * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
@@ -29,7 +31,7 @@ CSF::createOptions($prefix, array(
 
 $content = '欢迎使用酱茄Free主题! <br/><br/> 微信客服：jianbing2011 (加开源群、问题咨询、项目定制、购买咨询) <br/><br/> <a href="https://www.jiangqie.com/xz" target="_blank">更多免费产品</a>';
 if (stripos($_SERVER["REQUEST_URI"], 'jiangqie-free')) {
-    $res = wp_remote_get("https://key.jiangqie.com/api/goods/description?id=jq_theme_free", ['timeout' => 1]);
+    $res = wp_remote_get("https://daili.zhuige.com/api/goods/description?id=jq_theme_free", ['timeout' => 1]);
     if (!is_wp_error($res) && $res['response']['code'] == 200) {
         $data = json_decode($res['body'], TRUE);
         if ($data['code'] == 1) {
