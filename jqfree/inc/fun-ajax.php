@@ -155,7 +155,7 @@ function _getPosts($args)
             if (empty($author_avatar)) {
                 $author_avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
             }
-            $item['author_avatar'] = '<img alt="" src="' . $author_avatar . '" />';
+            $item['author_avatar'] = '<img alt="picture loss" src="' . $author_avatar . '" />';
         } else {
             $item['author_avatar'] = '';
         }

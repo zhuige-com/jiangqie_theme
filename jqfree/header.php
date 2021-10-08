@@ -37,7 +37,7 @@
 		<nav class="container">
 			<div class="menu-icon">
 				<span class="fas">
-					<img src="<?php echo get_stylesheet_directory_uri() . '/images/fa-menu.png'; ?>">
+					<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/fa-menu.png'; ?>" />
 				</span>
 			</div>
 			<a class="logo" href="<?php echo home_url(); ?>"><?php jiangqie_site_logo() ?></a>
@@ -60,12 +60,12 @@
 			?>
 			<div class="search-icon">
 				<span class="fas">
-					<img src="<?php echo get_stylesheet_directory_uri() . '/images/fa-search.png'; ?>">
+					<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/fa-search.png'; ?>" />
 				</span>
 			</div>
 			<div class="cancel-icon">
 				<span class="fas">
-					<img src="<?php echo get_stylesheet_directory_uri() . '/images/fa-close.png'; ?>">
+					<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/fa-close.png'; ?>" />
 				</span>
 			</div>
 			<form method="get" action="<?php bloginfo('url'); ?>/">

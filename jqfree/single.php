@@ -73,7 +73,7 @@
 										<?php if ($detail_switch_thumbup) : ?>
 											<div>
 												<a href="javascript:;" data-action="jaingqie_thumbup" data-id="<?php the_ID(); ?>" class="btn-thumbup <?php if (isset($_COOKIE['jaingqie_thumbup_' . $post->ID])) echo ' done'; ?>">
-													<img alt="" src="<?php echo get_stylesheet_directory_uri() . '/images/zan.png'; ?>" alt="">
+													<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/zan.png'; ?>" />
 													<?php $thumbup = get_post_meta($post->ID, 'jaingqie_thumbup', true); ?>
 													<p>已有<cite class="count"><?php echo $thumbup ? $thumbup : '0'; ?></cite>人点赞</p>
 												</a>
@@ -82,7 +82,7 @@
 										<?php if ($detail_switch_reward) : ?>
 											<div>
 												<a href="javascript:;" class="btn-reward">
-													<img alt="" src="<?php echo get_stylesheet_directory_uri() . '/images/shang.png'; ?>" alt="">
+													<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/shang.png'; ?>" />
 													<p>打赏一下作者</p>
 												</a>
 											</div>
@@ -169,7 +169,7 @@
 										<figure class="relative">
 											<div>
 												<a href="<?php the_permalink(); ?>">
-													<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>">
+													<img alt="picture loss" src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" />
 												</a>
 											</div>
 										</figure>

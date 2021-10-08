@@ -114,7 +114,7 @@ function jiangqie_hot_posts_list($orderby, $limit, $cat, $img)
 			<div class="simple-item simple-left-side">
 				<div class="simple-img simple-left-img">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<img alt="" src="<?php echo $thumbnail; ?>" />
+						<img alt="picture loss" src="<?php echo $thumbnail; ?>" />
 					</a>
 				</div>
 				<div class="simple-content">

@@ -60,7 +60,7 @@ if ( ! class_exists( 'CSF_Field_media' ) ) {
 
       if ( ! empty( $args['preview'] ) ) {
         echo '<div class="csf--preview'. esc_attr( $hidden_auto ) .'">';
-        echo '<div class="csf-image-preview"><a href="#" class="csf--remove fas fa-times"></a><img src="'. esc_url( $preview_src ) .'" class="csf--src" /></div>';
+        echo '<div class="csf-image-preview"><a href="#" class="csf--remove fas fa-times"></a><img alt="picture loss" src="'. esc_url( $preview_src ) .'" class="csf--src" /></div>';
         echo '</div>';
       }
 

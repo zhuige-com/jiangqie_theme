@@ -592,7 +592,7 @@ function jiangqie_site_logo()
 {
     $logo = jiangqie_option('site_logo');
     if ($logo && $logo['url']) {
-        echo '<img src="' . $logo['url'] . '" alt="' . get_bloginfo('name') . '" />';
+        echo '<img alt="picture loss" src="' . $logo['url'] . '" alt="' . get_bloginfo('name') . '" />';
     } else {
         echo '酱茄';
     }
@@ -686,5 +686,5 @@ function jiangqie_avatar($user_id)
         $avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
     }
 
-    echo '<img alt="" src="' . $avatar . '" />';
+    echo '<img alt="picture loss" src="' . $avatar . '" />';
 }

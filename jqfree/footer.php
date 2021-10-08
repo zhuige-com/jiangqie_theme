@@ -7,7 +7,7 @@
 			<?php
 			foreach ($footer_icons as $icon) : ?>
 				<a style="color: white;" href="<?php echo $icon['url'] ?>" title="" target="_blank">
-					<img src="<?php echo $icon['image']['url'] ?>" width="50" height="50" />
+					<img alt="picture loss" src="<?php echo $icon['image']['url'] ?>" width="50" height="50" />
 				</a>
 			<?php endforeach; ?>
 		</div>
@@ -52,7 +52,7 @@
 <?php wp_footer(); ?>
 
 <div id="toTop">
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/toTop.png'; ?>">
+	<img  alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/toTop.png'; ?>" />
 </div>
 
 <div style="display: none;">

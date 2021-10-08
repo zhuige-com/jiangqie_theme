@@ -35,7 +35,7 @@ if (!class_exists('JiangQie_User_Avatar')) {
 						if (empty($avatar)) {
 							$avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
 						}
-						echo '<img src="' . $avatar . '" width="64" height="64" />';
+						echo '<img alt="picture loss" src="' . $avatar . '" width="64" height="64" />';
 						?>
 					</td>
 					<td>

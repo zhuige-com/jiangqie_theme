@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                         element += '<div class="simple-img simple-left-img">'
                         element += '<a href="' + post.cat_link + '" title="' + post.cat_name + '">'
                         element += '<strong>' + post.cat_name + '</strong>'
-                        element += '<img alt="" src="' + post.thumbnail + '" />'
+                        element += '<img alt="picture loss" src="' + post.thumbnail + '" />'
                         element += '</a>'
                         element += '</div>'
                         element += '<div class="simple-content">'

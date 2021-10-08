@@ -19,7 +19,7 @@
 									<?php foreach ($home_slide as $slide) : ?>
 										<div class="lb-item active">
 											<a href="<?php echo $slide['url'] ?>" target="_blank">
-												<img src="<?php echo $slide['image']['url'] ?>" alt="picture loss">
+												<img alt="picture loss" src="<?php echo $slide['image']['url'] ?>" />
 												<div>
 													<h2><?php echo $slide['title'] ?></h2>
 												</div>
@@ -53,7 +53,7 @@
 										<figure class="relative">
 											<div>
 												<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
-													<img alt="" src="<?php echo $slide_ad['image']['url'] ?>" alt="">
+													<img alt="picture loss" src="<?php echo $slide_ad['image']['url'] ?>" />
 												</a>
 											</div>
 											<figcaption class="absolute bottom left">
@@ -81,7 +81,7 @@
 									<figure class="relative">
 										<div>
 											<a href="<?php echo get_permalink($post['id']) ?>">
-												<img alt="" src="<?php echo $post['thumbnail'] ?>" alt="">
+												<img alt="picture loss" src="<?php echo $post['thumbnail'] ?>" />
 											</a>
 										</div>
 									</figure>

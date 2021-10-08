@@ -33,7 +33,7 @@ if ( ! class_exists( 'CSF_Field_gallery' ) ) {
 
         foreach ( $values as $id ) {
           $attachment = wp_get_attachment_image_src( $id, 'thumbnail' );
-          echo '<li><img src="'. esc_url( $attachment[0] ) .'" /></li>';
+          echo '<li><img alt="picture loss" src="'. esc_url( $attachment[0] ) .'" /></li>';
         }
 
       }
