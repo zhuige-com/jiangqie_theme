@@ -34,9 +34,6 @@ function jiangqie_theme_init()
 {
     $url = get_template_directory_uri();
 
-    // 注册样式表
-    // wp_register_style('jq-style', get_stylesheet_uri(), [], '0.3', true);
-
     // 注册脚本
     // wp_register_script('jquery', 'https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js');
     wp_register_script('lib-script', $url . '/js/lib/lb.js', [], '0.3');
@@ -54,9 +51,6 @@ add_action('init', 'jiangqie_theme_init');
 
 function jiangqie_scripts()
 {
-    //全局加载主样式表
-    // wp_enqueue_style('jq-style');
-
     //全局加载js脚本
     wp_enqueue_script('jquery');
     wp_enqueue_script('lib-script');
