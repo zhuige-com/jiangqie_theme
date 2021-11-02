@@ -124,10 +124,11 @@ jQuery(document).ready(function ($) {
             $("#toTop").show();
         }
     });
-
+    
     $("#toTop").click(function (event) {
         $("html,body").animate(
             { scrollTop: "0px" },
+            666
         )
     });
     /** 返回顶部 end */
@@ -163,13 +164,6 @@ jQuery(document).ready(function ($) {
         } else {
             $('.widgetRoller').hide() 
         }
-    });
-
-    $("#toTop").click(function (event) {
-        $("html,body").animate(
-            { scrollTop: "0px" },
-            666
-        )
     });
     /* 右侧悬停 end */
 });

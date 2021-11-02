@@ -9,63 +9,108 @@
 				<div class="row d-flex flex-wrap mb-20-xs mb-0-md">
 
 					<!--幻灯片-->
-					<?php $home_slide = jiangqie_option('home_slide');
-					if (is_array($home_slide)) : ?>
-						<div class="column xs-12 sm-12 md-9 mb-20-xs mb-0-md">
-							<div class="lb-box" id="lb-1">
-								<!-- 轮播内容 -->
-								<div class="lb-content">
-									<?php foreach ($home_slide as $slide) : ?>
-										<div class="lb-item active">
-											<a href="<?php echo $slide['url'] ?>" target="_blank">
-												<img alt="picture loss" src="<?php echo $slide['image']['url'] ?>" />
-												<div>
-													<h2><?php echo $slide['title'] ?></h2>
-												</div>
-											</a>
-										</div>
-									<?php endforeach; ?>
-								</div>
-								<!-- 轮播标志 -->
-								<ol class="lb-sign">
-									<?php for ($i = 1; $i <= count($home_slide); $i++) :
-										if ($i == 1) echo '<li class="active">' . $i . '</li>';
-										else echo '<li>' . $i . '</li>';
-									endfor; ?>
-								</ol>
-								<!-- 轮播控件 -->
-								<div class="lb-ctrl left">＜</div>
-								<div class="lb-ctrl right">＞</div>
-							</div>
-						</div>
-					<?php endif; ?>
-
-					<!--小图区-->
-					<?php $home_slide_ad = jiangqie_option('home_slide_ad');
-					if (is_array($home_slide_ad)) : ?>
-						<div class="column xs-12 sm-12 md-3">
-							<!-- row start-->
-							<div class="row d-flex flex-wrap lb-side">
-								<!--小图区块-->
-								<?php foreach ($home_slide_ad as $slide_ad) : ?>
-									<div class="column xs-6 sm-6 md-12 mb-20">
-										<figure class="relative">
+					<?php
+					$home_slide = jiangqie_option('home_slide');
+					$slides = [];
+					if (is_array($home_slide)) {
+						foreach ($home_slide as $slide) {
+							if ($slide['image']['url']) {
+								$slides[] = [
+									'title' => $slide['title'],
+									'image' => $slide['image']['url'],
+									'url' => $slide['url']
+								];
+							}
+						}
+					}
+					if (empty($slides)) {
+						$slides[] = [
+							'title' => '请在后台设置幻灯片',
+							'image' => get_stylesheet_directory_uri() . '/images/slide.png',
+							'url' => 'https://www.zhuige.com/product'
+						];
+					}
+					?>
+					<div class="column xs-12 sm-12 md-9 mb-20-xs mb-0-md">
+						<div class="lb-box" id="lb-1">
+							<!-- 轮播内容 -->
+							<div class="lb-content">
+								<?php foreach ($slides as $slide) : ?>
+									<div class="lb-item active">
+										<a href="<?php echo $slide['url'] ?>" target="_blank">
+											<img alt="picture loss" src="<?php echo $slide['image'] ?>" />
 											<div>
-												<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
-													<img alt="picture loss" src="<?php echo $slide_ad['image']['url'] ?>" />
-												</a>
+												<h2><?php echo $slide['title'] ?></h2>
 											</div>
-											<figcaption class="absolute bottom left">
-												<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
-													<span class="title"><?php echo $slide_ad['title'] ?></span>
-												</a>
-											</figcaption>
-										</figure>
+										</a>
 									</div>
 								<?php endforeach; ?>
 							</div>
+							<!-- 轮播标志 -->
+							<ol class="lb-sign">
+								<?php for ($i = 1; $i <= count($slides); $i++) :
+									if ($i == 1) echo '<li class="active">' . $i . '</li>';
+									else echo '<li>' . $i . '</li>';
+								endfor; ?>
+							</ol>
+							<!-- 轮播控件 -->
+							<div class="lb-ctrl left">＜</div>
+							<div class="lb-ctrl right">＞</div>
 						</div>
-					<?php endif; ?>
+					</div>
+
+					<!--小图区-->
+					<?php
+					$home_slide_ad = jiangqie_option('home_slide_ad');
+					$slide_ads = [];
+					if (is_array($home_slide_ad)) {
+						foreach ($home_slide_ad as $slide_ad) {
+							if ($slide_ad['image']['url']) {
+								$slide_ads[] = [
+									'title' => $slide_ad['title'],
+									'image' => $slide_ad['image']['url'],
+									'url' => $slide_ad['url']
+								];
+							}
+						}
+					}
+					if (empty($slide_ads)) {
+						$slide_ads = [
+							[
+								'title' => '请在后台设置',
+								'image' => get_stylesheet_directory_uri() . '/images/jiangqie.png',
+								'url' => 'https://www.jiangqie.com'
+							],
+							[
+								'title' => '请在后台设置',
+								'image' => get_stylesheet_directory_uri() . '/images/jiangqie.png',
+								'url' => 'https://www.jiangqie.com'
+							],
+						];
+					}
+					?>
+					<div class="column xs-12 sm-12 md-3">
+						<!-- row start-->
+						<div class="row d-flex flex-wrap lb-side">
+							<!--小图区块-->
+							<?php foreach ($slide_ads as $slide_ad) : ?>
+								<div class="column xs-6 sm-6 md-12 mb-20">
+									<figure class="relative">
+										<div>
+											<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
+												<img alt="picture loss" src="<?php echo $slide_ad['image'] ?>" />
+											</a>
+										</div>
+										<figcaption class="absolute bottom left">
+											<a href="<?php echo $slide_ad['url'] ?>" target="_blank">
+												<span class="title"><?php echo $slide_ad['title'] ?></span>
+											</a>
+										</figcaption>
+									</figure>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
 
 				</div>
 

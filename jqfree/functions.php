@@ -4,6 +4,8 @@ require_once get_theme_file_path() . '/inc/admin-options.php';
 require_once get_theme_file_path() . '/inc/fun-menus.php';
 require_once get_theme_file_path() . '/inc/fun-widgets.php';
 require_once get_theme_file_path() . '/inc/fun-ajax.php';
+require_once get_theme_file_path() . '/inc/jiangqie-dashboard.php';
+require_once get_theme_file_path() . '/inc/jiangqie-pages.php';
 require_once get_theme_file_path() . '/inc/jiangqie-user-avatar.php';
 
 /**
@@ -210,13 +212,18 @@ function jiangqie_time_ago($ptime)
  * 设置项的值
  */
 $jiangqie_options = null;
-function jiangqie_option($key)
+function jiangqie_option($key, $default='')
 {
     global $jiangqie_options;
     if (!$jiangqie_options) {
         $jiangqie_options = get_option('jiangqie_free');
     }
-    return $jiangqie_options[$key];
+
+    if (isset($jiangqie_options[$key])) {
+        return $jiangqie_options[$key];
+    }
+
+    return $default;
 }
 
 /**
@@ -472,15 +479,18 @@ function footer_hot_recommend()
 {
     $hot_ids = jiangqie_option('footer_hot_recommend');
     if (empty($hot_ids)) {
-        return false;
+        $args = [
+            'posts_per_page' => 3,
+            'ignore_sticky_posts' => 1
+        ];
+    } else {
+        $args = [
+            'post__in' => $hot_ids,
+            'orderby' => 'post__in',
+            'posts_per_page' => -1,
+            'ignore_sticky_posts' => 1
+        ];
     }
-
-    $args = [
-        'post__in' => $hot_ids,
-        'orderby' => 'post__in',
-        'posts_per_page' => -1,
-        'ignore_sticky_posts' => 1
-    ];
 
     $hots = [];
     $query = new WP_Query();
