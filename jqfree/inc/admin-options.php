@@ -26,6 +26,8 @@ CSF::createOptions($prefix, array(
     'menu_title' => '酱茄Free主题',
     'menu_slug'  => 'jiangqie-free',
     'menu_position' => 2,
+    'show_bar_menu' => false,
+    'show_sub_menu' => false,
     'footer_credit' => 'Thank you for creating with <a href="https://www.jiangqie.com/" target="_blank">酱茄</a>',
 ));
 

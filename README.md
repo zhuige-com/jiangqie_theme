@@ -5,30 +5,43 @@
 
 **主题演示**：https://xcx.jiangqie.com/
 
-**主题下载**：https://github.com/longwenjunjie/jiangqie_theme
-
-**酱茄Free WordPress主题配套小程序源码下载**：https://www.jiangqie.com/ky
-
-**微信**：jianbing2011（如你想加入微信群请说明）
+**主题下载**：https://gitee.com/longwenjunj/jiangqie_theme
 
 ------
 
-### 官方微信群
+### 联系交流 
 
-![酱茄Free主题官方微信群](https://www.jiangqie.com/wp-content/uploads/2020/11/WechatIMG411-226x300.jpeg)
+微信：**jianbing2011**（加微信，进微信群交流）
+
+<img src="https://www.zhuige.com/uploads/20210828/2830bbe86eb2379d2f629dd125c6f9d7.jpg" alt="扫码加微信" width="300" height="300" />
+
+------
+
+### 追格（酱茄）开源产品
+
+1. 追格资讯小程序Free：[https://www.zhuige.com/product/zxfree.html](https://www.zhuige.com/product/zxfree.html)
+
+2. 酱茄主题Free：[https://www.zhuige.com/product/ztfree.html](https://www.zhuige.com/product/ztfree.html)
+
+3. 追格企业官网小程序Free：[https://www.zhuige.com/product/gwfree.html](https://www.zhuige.com/product/gwfree.html)
+
+4. 追格企业官网主题：[https://www.zhuige.com/product/gwztfree.html](https://www.zhuige.com/product/gwztfree.html)
+
+5. 追格积分商城小程序：[https://www.zhuige.com/product/jf.html](https://www.zhuige.com/product/jf.html)
+
+6. 追格商城小程序：[https://www.zhuige.com/product/sc.html](https://www.zhuige.com/product/sc.html)
 
 ------
 
 ### 预览
+
 ![酱茄Free主题预览](https://www.jiangqie.com/wp-content/uploads/2020/11/zt-e1606106065241-2048x1261.png)
 
 ------
 
 ### 运行环境
 
-酱茄Free主题当前版本：2020.11.25 V1.0.0
-
-支持WordPress版本：5.4+
+支持WordPress版本：5.6+
 
 兼容Chrome、Firefox、Safari等主流浏览器
 
@@ -70,6 +83,21 @@
 
 ### 更新日志
 
+#### 2022.1.26 V1.2.0
+
+1. 隐藏后台冗余二级菜单
+
+2. 增加默认数据，方便安装使用
+
+3. 清理了无用的代码
+
+4. 添加了帮助链接
+
+5. 优化了UI小细节
+
+6. 修复了已知的bug
+
+
 #### 2021.1.28 V1.1.1
 
 1. 新增：首页分类排序功能；
@@ -98,7 +126,15 @@
 
 ### 免责声明
 
-用户在接受酱茄服务之前，请务必仔细阅读本条款（ www.jiangqie.com/mzsm ）并同意本声明。
+用户在接受酱茄服务之前，请务必仔细阅读本声明（ www.jiangqie.com/mzsm ）并同意本声明。
+
+------
+
+### 特别声明
+
+黑灰产请绕行！
+
+如果发现有人使用本程序从事违法活动，将即可向公安机关举报，并协助破案！
 
 ------
 

@@ -104,7 +104,7 @@
 											<?php if (get_previous_post()) {
 												previous_post_link('%link', '上一篇');
 											} else {
-												echo "没有了";
+												echo '<a href="javascript:void(0)">上一篇</a>';
 											} ?>
 										</h6>
 										<p>
@@ -120,7 +120,7 @@
 											<?php if (get_next_post()) {
 												next_post_link('%link', '下一篇');
 											} else {
-												echo "没有了";
+												echo '<a href="javascript:void(0)">下一篇</a>';
 											} ?>
 										</h6>
 										<p>

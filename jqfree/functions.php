@@ -186,14 +186,13 @@ function jiangqie_thumbnail_src_d($post_id, $post_content)
  */
 function jiangqie_time_ago($ptime)
 {
-    date_default_timezone_set("Asia/Shanghai");
     $ptime = strtotime($ptime);
     $etime = time() - $ptime;
     if ($etime < 1) return '刚刚';
     $interval = array(
-        12 * 30 * 24 * 60 * 60  =>  '年前 (' . date('Y-m-d', $ptime) . ')',
-        30 * 24 * 60 * 60       =>  '个月前 (' . date('m-d', $ptime) . ')',
-        7 * 24 * 60 * 60        =>  '周前 (' . date('m-d', $ptime) . ')',
+        12 * 30 * 24 * 60 * 60  =>  '年前 (' . wp_date('Y-m-d', $ptime) . ')',
+        30 * 24 * 60 * 60       =>  '个月前 (' . wp_date('m-d', $ptime) . ')',
+        7 * 24 * 60 * 60        =>  '周前 (' . wp_date('m-d', $ptime) . ')',
         24 * 60 * 60            =>  '天前',
         60 * 60                 =>  '小时前',
         60                      =>  '分钟前',

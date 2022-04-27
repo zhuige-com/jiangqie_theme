@@ -11,8 +11,8 @@ add_action('wp_ajax_nopriv_jaingqie_thumbup', 'jaingqie_thumbup');
 add_action('wp_ajax_jaingqie_thumbup', 'jaingqie_thumbup');
 function jaingqie_thumbup()
 {
-    $id = $_POST["um_id"];
-    $action = $_POST["um_action"];
+    $id = isset($_POST["um_id"]) ? sanitize_text_field(wp_unslash($_POST["um_id"])) : '';
+    $action = isset($_POST["um_action"]) ? sanitize_text_field(wp_unslash($_POST["um_action"])) : '';
     if ($action == 'jaingqie_thumbup') {
         $specs_raters = get_post_meta($id, 'jaingqie_thumbup', true);
         $expire = time() + 99999999;
@@ -98,14 +98,13 @@ function _getThumbnail($post_id, $post_content)
  */
 function _timeAgo($ptime)
 {
-    date_default_timezone_set("Asia/Shanghai");
     $ptime = strtotime($ptime);
     $etime = time() - $ptime;
     if ($etime < 1) return '刚刚';
     $interval = array(
-        12 * 30 * 24 * 60 * 60  =>  '年前 (' . date('Y-m-d', $ptime) . ')',
-        30 * 24 * 60 * 60       =>  '个月前 (' . date('m-d', $ptime) . ')',
-        7 * 24 * 60 * 60        =>  '周前 (' . date('m-d', $ptime) . ')',
+        12 * 30 * 24 * 60 * 60  =>  '年前 (' . wp_date('Y-m-d', $ptime) . ')',
+        30 * 24 * 60 * 60       =>  '个月前 (' . wp_date('m-d', $ptime) . ')',
+        7 * 24 * 60 * 60        =>  '周前 (' . wp_date('m-d', $ptime) . ')',
         24 * 60 * 60            =>  '天前',
         60 * 60                 =>  '小时前',
         60                      =>  '分钟前',
@@ -196,7 +195,7 @@ function _getPosts($args)
             $item['comment_count'] = '';
         }
 
-        $item['time'] = _timeAgo($post->post_date);
+        $item['time'] = _timeAgo($post->post_date_gmt);
 
         $posts[] = $item;
     }
@@ -211,7 +210,7 @@ function ajax_more_posts()
 {
     header("Content-Type: application/json");
 
-    $start = $_POST['start'];
+    $start = isset($_POST['start']) ? sanitize_text_field(wp_unslash($_POST['start'])) : '';
     if (empty($start)) {
         $start = 0;
     }
@@ -224,13 +223,13 @@ function ajax_more_posts()
     ];
 
     if (isset($_POST['tagid'])) {
-        $catid = $_POST['tagid'];
+        $catid = sanitize_text_field(wp_unslash($_POST['tagid']));
         $args['tag_id'] = $catid;
     } else if (isset($_POST['author'])) {
-        $author = $_POST['author'];
+        $author = sanitize_text_field(wp_unslash($_POST['author']));
         $args['author'] = $author;
     } else if (isset($_POST['catid'])) {
-        $catid = $_POST['catid'];
+        $catid = sanitize_text_field(wp_unslash($_POST['catid']));
         $args['cat'] = $catid;
     } else {
         $home_cat_show = jiangqie_option('home_cat_show');

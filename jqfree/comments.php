@@ -8,7 +8,6 @@ if (!comments_open()) {
     return;
 }
 
-date_default_timezone_set("Asia/Shanghai");
 $closeTimer = (time() - strtotime(get_the_time('Y-m-d G:i:s'))) / 86400;
 
 ?>
