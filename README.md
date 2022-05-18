@@ -5,7 +5,7 @@
 
 **主题演示**：https://xcx.jiangqie.com/
 
-**主题下载**：https://gitee.com/longwenjunj/jiangqie_theme
+**主题下载**：https://gitee.com/zhuige_com/jiangqie_theme
 
 ------
 
