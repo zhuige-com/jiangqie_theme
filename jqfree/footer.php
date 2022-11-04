@@ -1,5 +1,5 @@
 <!--页脚-->
-<footer>
+<footer class="cont-footer">
 	<!--页脚图标链接-->
 	<?php $footer_icons = jiangqie_option('footer_icons');
 	if (is_array($footer_icons) && !empty($footer_icons)) { ?>
@@ -21,7 +21,7 @@
 				<?php 
 					$footer_about = jiangqie_option('footer_about');
 					if (empty($footer_about)) {
-						$footer_about = '请到后台设置此处信息</br></br>如需帮助可添加微信</br></br>jianbing2011</br></br>（请说明来意）';
+						$footer_about = '请到后台设置此处信息';
 					}
 					echo $footer_about; 
 				?>

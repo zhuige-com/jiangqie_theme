@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<title><?php jiangqie_seo_title() ?></title>
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=1.2.1">
+	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=1.2.2">
 	<script>
 		var gCatId = undefined;
 		var gTagId = undefined;
@@ -53,7 +53,7 @@
 			} else { ?>
 				<div class="nav-box">
 					<ul class="nav-items">
-						<li class="menu-item"><a href="https://www.jiangqie.com/docs#jqfree" target="_blank">新朋友请参考酱茄主题安装文档</a></li>
+						<li class="menu-item"><a href="https://www.zhuige.com/docs/ztfree" target="_blank">新朋友请参考酱茄主题安装文档</a></li>
 					</ul>
 				</div>
 			<?php }

@@ -415,6 +415,7 @@ aside {}
 	font-size: 14px;
 	font-weight: 400;
 	color: #2A2A2A;
+	margin-bottom: 10px;
 }
 
 .aside-block h2 a.btn,
@@ -729,7 +730,7 @@ aside {}
 
 /*** 页面footer ***/
 
-footer {
+footer.cont-footer {
 	background: #2A2A2A;
 	padding: 40px 0;
 }
