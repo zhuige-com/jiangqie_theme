@@ -29,30 +29,6 @@ function jaingqie_thumbup()
 }
 
 /**
- * 打赏图片
- */
-// add_action('wp_ajax_nopriv_jaingqie_reward', 'jaingqie_reward');
-// add_action('wp_ajax_jaingqie_reward', 'jaingqie_reward');
-// function jaingqie_reward()
-// {
-//     $detail_reward_image = jiangqie_option('detail_reward_image');
-//     if ($detail_reward_image && $detail_reward_image['url']) {
-//         $data = [
-//             'error' => '',
-//             'image' => $detail_reward_image['url']
-//         ];
-//     } else {
-//         $data = [
-//             'error' => '请在后台配置打赏二维码'
-//         ];
-//     }
-
-//     echo json_encode($data);
-//     die;
-// }
-
-
-/**
  * 加载文章
  */
 add_action('wp_ajax_nopriv_ajax_more_posts', 'ajax_more_posts');
@@ -83,8 +59,6 @@ function _getThumbnail($post_id, $post_content)
         $thumbnail_src = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full');
         $post_thumbnail_src = $thumbnail_src[0];
     } else {
-        // ob_start();
-        // ob_end_clean();
         $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
         if ($matches && isset($matches[1]) && isset($matches[1][0])) {
             $post_thumbnail_src = $matches[1][0];   //获取该图片 src
