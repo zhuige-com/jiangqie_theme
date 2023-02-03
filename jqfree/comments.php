@@ -18,12 +18,12 @@ $closeTimer = (time() - strtotime(get_the_time('Y-m-d G:i:s'))) / 86400;
 
 <div id="respond" class="comment-respond mb-20-xs">
     <?php if (get_option('comment_registration') && !is_user_logged_in()) { ?>
-		<a href="<?php echo wp_login_url(get_permalink()); ?>" class="comment-login-textarea">
-			<textarea cols="45" rows="8" maxlength="65525" placeholder="请回复有价值的信息，无意义的评论讲很快被删除，账号将被禁止发言。" required="required"></textarea>
-		 </a>
+        <a href="<?php echo wp_login_url(get_permalink()); ?>" class="comment-login-textarea">
+            <textarea cols="45" rows="8" maxlength="65525" placeholder="请回复有价值的信息，无意义的评论讲很快被删除，账号将被禁止发言。" required="required"></textarea>
+        </a>
         <h3 class="queryinfo comment-login-tip">
             <?php printf('您必须 <a href="%s">登录</a> 才能发表评论！', wp_login_url(get_permalink())); ?>
-        </h3> 
+        </h3>
     <?php } elseif (get_option('close_comments_for_old_posts') && $closeTimer > get_option('close_comments_days_old')) { ?>
         <h3 class="queryinfo">
             文章评论已关闭！
@@ -31,7 +31,7 @@ $closeTimer = (time() - strtotime(get_the_time('Y-m-d G:i:s'))) / 86400;
     <?php } else { ?>
 
         <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-            <div class="comment-form-box <?php echo is_user_logged_in()?'comment-form-login':'' ?>">
+            <div class="comment-form-box <?php echo is_user_logged_in() ? 'comment-form-login' : '' ?>">
                 <p class="comment-form-comment">
                     <label for="comment">评论</label>
                     <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" placeholder="请回复有价值的信息，无意义的评论讲很快被删除，账号将被禁止发言。" required="required"></textarea>

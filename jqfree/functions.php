@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
+ * 文档：https://www.zhuige.com/product/ztfree.html
+ * gitee：https://gitee.com/zhuige_com/jiangqie_theme
+ * github：https://github.com/zhuige-com/jiangqie_theme
+ */
+
 require_once get_theme_file_path() . '/inc/codestar-framework/codestar-framework.php';
 require_once get_theme_file_path() . '/inc/admin-options.php';
 require_once get_theme_file_path() . '/inc/fun-menus.php';
@@ -14,29 +22,30 @@ require_once get_theme_file_path() . '/inc/jiangqie-user-avatar.php';
 add_filter('pre_option_link_manager_enabled', '__return_true');
 
 /* wp编辑器增加字体和字体大小设置 */
-function MBT_add_editor_buttons($buttons) {
- $buttons[] = 'fontselect';
- $buttons[] = 'fontsizeselect';
- $buttons[] = 'cleanup';
- $buttons[] = 'styleselect';
- $buttons[] = 'del';
- $buttons[] = 'sub';
- $buttons[] = 'sup';
- $buttons[] = 'copy';
- $buttons[] = 'paste';
- $buttons[] = 'cut';
- $buttons[] = 'image';
- $buttons[] = 'anchor';
- $buttons[] = 'backcolor';
- $buttons[] = 'wp_page';
- $buttons[] = 'charmap';
- return $buttons;
+function MBT_add_editor_buttons($buttons)
+{
+    $buttons[] = 'fontselect';
+    $buttons[] = 'fontsizeselect';
+    $buttons[] = 'cleanup';
+    $buttons[] = 'styleselect';
+    $buttons[] = 'del';
+    $buttons[] = 'sub';
+    $buttons[] = 'sup';
+    $buttons[] = 'copy';
+    $buttons[] = 'paste';
+    $buttons[] = 'cut';
+    $buttons[] = 'image';
+    $buttons[] = 'anchor';
+    $buttons[] = 'backcolor';
+    $buttons[] = 'wp_page';
+    $buttons[] = 'charmap';
+    return $buttons;
 }
 add_filter("mce_buttons_2", "MBT_add_editor_buttons");
 
 // 切换经典小工具
-add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
-add_filter( 'use_widgets_block_editor', '__return_false' );
+add_filter('gutenberg_use_widgets_block_editor', '__return_false');
+add_filter('use_widgets_block_editor', '__return_false');
 
 /**
  * 移除图片的宽高属性
@@ -236,7 +245,7 @@ function jiangqie_time_ago($ptime)
  * 设置项的值
  */
 $jiangqie_options = null;
-function jiangqie_option($key, $default='')
+function jiangqie_option($key, $default = '')
 {
     global $jiangqie_options;
     if (!$jiangqie_options) {

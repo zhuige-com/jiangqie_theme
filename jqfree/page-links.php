@@ -15,7 +15,7 @@ Template Name: 酱茄-友情链接
 				<div class="base-list search-list mb-20">
 					<?php jiangqie_breadcrumbs(); ?>
 					<div class="content-wrap">
-						<?php  wp_list_bookmarks(['show_name' => true]); ?>
+						<?php wp_list_bookmarks(['show_name' => true]); ?>
 					</div>
 				</div>
 

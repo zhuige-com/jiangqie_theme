@@ -18,30 +18,30 @@
 			<!--关于我们-->
 			<div class="column xs-12 sm-6 md-4 pt-30 pb-30">
 				<h3 class="mb-30">关于我们</h3>
-				<?php 
-					$footer_about = jiangqie_option('footer_about');
-					if (empty($footer_about)) {
-						$footer_about = '请到后台设置此处信息';
-					}
-					echo $footer_about; 
+				<?php
+				$footer_about = jiangqie_option('footer_about');
+				if (empty($footer_about)) {
+					$footer_about = '请到后台设置此处信息';
+				}
+				echo $footer_about;
 				?>
 			</div>
 			<!--页脚导航-->
 			<div class="column xs-12 sm-6 md-4 pt-30 pb-30">
 				<h3 class="mb-30">快速导航</h3>
-				<?php 
-					$footer_nav = jiangqie_option('footer_nav');
-					if (empty($footer_nav)) {
-						$footer_nav = [
-							['title' => '追格小程序', 'url' => 'https://www.zhuige.com'],
-							['title' => '酱茄小程序', 'url' => 'https://www.jiangqie.com'],
-							['title' => '所有标签', 'url' => home_url('/tags')],
-							['title' => '友情链接', 'url' => home_url('/links')],
-						];
-					}
-					foreach ($footer_nav as $nav) :
-						echo '<p><a href="' . $nav['url'] . '" title="' . $nav['title'] . '">' . $nav['title'] . '</a></p>';
-					endforeach;
+				<?php
+				$footer_nav = jiangqie_option('footer_nav');
+				if (empty($footer_nav)) {
+					$footer_nav = [
+						['title' => '追格小程序', 'url' => 'https://www.zhuige.com'],
+						['title' => '酱茄小程序', 'url' => 'https://www.jiangqie.com'],
+						['title' => '所有标签', 'url' => home_url('/tags')],
+						['title' => '友情链接', 'url' => home_url('/links')],
+					];
+				}
+				foreach ($footer_nav as $nav) :
+					echo '<p><a href="' . $nav['url'] . '" title="' . $nav['title'] . '">' . $nav['title'] . '</a></p>';
+				endforeach;
 				?>
 			</div>
 			<!--页脚资讯列表-->
@@ -60,18 +60,18 @@
 	<!--页脚版权-->
 	<div class="container ta-c pt-40 main-footer-copyinfo">
 		<?php
-			$footer_copyright = jiangqie_option('footer_copyright');
-			if (empty($footer_copyright)) {
-				$footer_copyright = '主题设计 <a href="https://www.zhuige.com" target="_blank" title="追格" style="color:#7F7F7F;">追格（zhuige.com）</a>';
-			}
-			echo $footer_copyright; ?>
+		$footer_copyright = jiangqie_option('footer_copyright');
+		if (empty($footer_copyright)) {
+			$footer_copyright = '主题设计 <a href="https://www.zhuige.com" target="_blank" title="追格" style="color:#7F7F7F;">追格（zhuige.com）</a>';
+		}
+		echo $footer_copyright; ?>
 	</div>
 </footer>
 
 <?php wp_footer(); ?>
 
 <div id="toTop">
-	<img  alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/toTop.png'; ?>" />
+	<img alt="picture loss" src="<?php echo get_stylesheet_directory_uri() . '/images/toTop.png'; ?>" />
 </div>
 
 <div style="display: none;">

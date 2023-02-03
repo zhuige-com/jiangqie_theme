@@ -8,9 +8,9 @@
 
 				<div class="base-list article-list search-list mb-20">
 					<?php jiangqie_breadcrumbs(); ?>
-					<?php if (is_category()): ?>
+					<?php if (is_category()) : ?>
 						<h5 class="mb-10">
-							<?php 
+							<?php
 							$categories = get_the_category();
 							$cat_name = $categories[0]->cat_name;
 							$cat_link = get_category_link($categories[0]->cat_ID);
@@ -21,7 +21,7 @@
 					<div class="base-box">
 						<!-- 文章列表 -->
 					</div>
-					
+
 					<div class="spinner">
 						<div class="rect1"></div>
 						<div class="rect2"></div>

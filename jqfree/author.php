@@ -8,33 +8,32 @@
 
 				<div class="base-list article-list search-list mb-20">
 					<?php jiangqie_breadcrumbs(); ?>
-					
-					<?php
-						$userdata = get_userdata($author);
-						// echo json_encode($userdata);
-						
-						// global $wp_query;
-						// $curauth = $wp_query->get_queried_object();
-						// echo json_encode($curauth);
 
-						$author_name = get_user_meta($author, 'nickname', true);
+					<?php
+					$userdata = get_userdata($author);
+					// echo json_encode($userdata);
+
+					// global $wp_query;
+					// $curauth = $wp_query->get_queried_object();
+					// echo json_encode($curauth);
+
+					$author_name = get_user_meta($author, 'nickname', true);
 					?>
-					
+
 					<div class="author-wap d-flex flex-wrap">
 						<div class="column md-2 author-avatar">
-						<?php jiangqie_avatar($author); ?>
+							<?php jiangqie_avatar($author); ?>
 						</div>
 						<div class="column md-10 author-info">
 							<h4><?php echo $author_name ?>的文章</h4>
 							<p>
 								<?php
-									echo $userdata->description;
+								echo $userdata->description;
 								?>
 							</p>
 						</div>
 					</div>
-					
-					
+
 					<div class="base-box">
 						<!-- 文章列表 -->
 					</div>
