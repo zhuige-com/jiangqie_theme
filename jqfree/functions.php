@@ -1,20 +1,25 @@
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <?php
 
 /**
- * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
+ * 酱茄Free主题由追格（www.zhuige.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
  * 文档：https://www.zhuige.com/product/ztfree.html
  * gitee：https://gitee.com/zhuige_com/jiangqie_theme
  * github：https://github.com/zhuige-com/jiangqie_theme
  */
 
-require_once get_theme_file_path() . '/inc/codestar-framework/codestar-framework.php';
-require_once get_theme_file_path() . '/inc/admin-options.php';
-require_once get_theme_file_path() . '/inc/fun-menus.php';
-require_once get_theme_file_path() . '/inc/fun-widgets.php';
-require_once get_theme_file_path() . '/inc/fun-ajax.php';
-require_once get_theme_file_path() . '/inc/jiangqie-dashboard.php';
-require_once get_theme_file_path() . '/inc/jiangqie-pages.php';
-require_once get_theme_file_path() . '/inc/jiangqie-user-avatar.php';
+require_once TEMPLATEPATH . '/inc/codestar-framework/codestar-framework.php';
+require_once TEMPLATEPATH . '/inc/admin-options.php';
+require_once TEMPLATEPATH . '/inc/fun-menus.php';
+require_once TEMPLATEPATH . '/inc/fun-widgets.php';
+require_once TEMPLATEPATH . '/inc/fun-ajax.php';
+require_once TEMPLATEPATH . '/inc/jiangqie-dashboard.php';
+require_once TEMPLATEPATH . '/inc/jiangqie-pages.php';
+require_once TEMPLATEPATH . '/inc/jiangqie-user-avatar.php';
 
 /**
  * 开启链接管理
@@ -178,13 +183,13 @@ function jiangqie_theme_free_handle_external_redirects()
     }
 
     if ('jiangqie_theme_free_setup' === $_GET['page']) {
-        wp_redirect('https://www.jiangqie.com/theme/6177.html');
-        die;
+        wp_redirect('https://www.zhuige.com/docs/ztfree');
+        exit;
     }
 
     if ('jiangqie_theme_free_upgrade' === $_GET['page']) {
-        wp_redirect('https://pro.jiangqie.com');
-        die;
+        wp_redirect('https://www.zhuige.com/product/zt.html');
+        exit;
     }
 }
 

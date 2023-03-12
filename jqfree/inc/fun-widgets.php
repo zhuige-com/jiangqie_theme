@@ -3,12 +3,12 @@
 } // Cannot access directly.
 
 /**
- * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
+ * 酱茄Free主题由追格（www.zhuige.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
  */
 
-require_once get_theme_file_path() . '/inc/widgets/rand-list.php';
-require_once get_theme_file_path() . '/inc/widgets/hot-list.php';
-require_once get_theme_file_path() . '/inc/widgets/tags.php';
+require_once TEMPLATEPATH . '/inc/widgets/rand-list.php';
+require_once TEMPLATEPATH . '/inc/widgets/hot-list.php';
+require_once TEMPLATEPATH . '/inc/widgets/tags.php';
 
 
 /** 小程序占位 */

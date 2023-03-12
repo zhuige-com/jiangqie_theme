@@ -1,3 +1,8 @@
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <!--侧边栏-->
 <aside class="column xs-12 sm-12 md-4">
 	<?php

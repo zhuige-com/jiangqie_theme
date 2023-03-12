@@ -1,3 +1,8 @@
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <!--页脚-->
 <footer class="cont-footer">
 	<!--页脚图标链接-->
@@ -34,7 +39,6 @@
 				if (empty($footer_nav)) {
 					$footer_nav = [
 						['title' => '追格小程序', 'url' => 'https://www.zhuige.com'],
-						['title' => '酱茄小程序', 'url' => 'https://www.jiangqie.com'],
 						['title' => '所有标签', 'url' => home_url('/tags')],
 						['title' => '友情链接', 'url' => home_url('/links')],
 					];

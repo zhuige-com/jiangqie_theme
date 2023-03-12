@@ -1,11 +1,11 @@
 
-酱茄Free主题由酱茄（ www.jiangqie.com ）开发的一款免费开源的WordPress主题，主题专为WordPress博客、资讯、自媒体网站而设计，遵循GPL V2.0开源协议发布（协议连接：http://www.gnu.org/licenses/gpl-2.0.html ）。
+酱茄Free主题由追格（ www.zhuige.com ）开发的一款免费开源的WordPress主题，主题专为WordPress博客、资讯、自媒体网站而设计，遵循GPL V2.0开源协议发布（协议连接：http://www.gnu.org/licenses/gpl-2.0.html ）。
 
 ------
 
 **主题演示**：https://xcx.jiangqie.com/
 
-**主题下载**：https://gitee.com/longwenjunj/jiangqie_theme
+**主题下载**：https://gitee.com/zhuige_com/jiangqie_theme
 
 ------
 

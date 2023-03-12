@@ -4,6 +4,11 @@ Template Name: 酱茄-友情链接
 */
 ?>
 
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <?php get_header(); ?>
 
 <div class="main-body mt-20">

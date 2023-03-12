@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 酱茄Free主题由酱茄（www.jiangqie.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
+ * 酱茄Free主题由追格（www.zhuige.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
  */
 
 add_action('widgets_init', 'jiangqie_tags');

@@ -1,6 +1,20 @@
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <?php
 if (isset($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
     die('Please do not load this page directly. Thanks!');
+}
+
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if (post_password_required()) {
+    return;
 }
 
 if (!comments_open()) {

@@ -1,3 +1,8 @@
+<?php if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <?php get_header(); ?>
 
 <div class="main-body mt-20">
@@ -79,12 +84,12 @@
 							[
 								'title' => '请在后台设置',
 								'image' => get_stylesheet_directory_uri() . '/images/jiangqie.png',
-								'url' => 'https://www.jiangqie.com'
+								'url' => 'https://www.zhuige.com'
 							],
 							[
 								'title' => '请在后台设置',
 								'image' => get_stylesheet_directory_uri() . '/images/jiangqie.png',
-								'url' => 'https://www.jiangqie.com'
+								'url' => 'https://www.zhuige.com'
 							],
 						];
 					}
