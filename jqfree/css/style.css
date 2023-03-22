@@ -1665,6 +1665,33 @@ footer.cont-footer {
 	opacity: 0.3;
 }
 
+
+.content-view .post-password-form {
+	padding: 10px 0;
+}
+.content-view .post-password-form p, .content-view .post-password-form p label {
+	display: flex;
+	align-items: center;
+}
+
+.content-view .post-password-form input[type=password] {
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #CCCCCC;
+	border-radius: 2px 0 0 2px;
+	width: 200px;
+}
+.content-view .post-password-form input[type=submit] {
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #ff3d00;
+	background: #ff3d00;
+	color: #FFFFFF;
+	margin: 0;
+	padding: 0 32px;
+	border-radius: 0 2px 2px 0;
+}
+
 .content-tag {
 	font-weight: 300;
 }

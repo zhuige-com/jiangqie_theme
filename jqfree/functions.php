@@ -14,6 +14,7 @@
 
 require_once TEMPLATEPATH . '/inc/codestar-framework/codestar-framework.php';
 require_once TEMPLATEPATH . '/inc/admin-options.php';
+require_once TEMPLATEPATH . '/inc/zhuige-market.php';
 require_once TEMPLATEPATH . '/inc/fun-menus.php';
 require_once TEMPLATEPATH . '/inc/fun-widgets.php';
 require_once TEMPLATEPATH . '/inc/fun-ajax.php';
