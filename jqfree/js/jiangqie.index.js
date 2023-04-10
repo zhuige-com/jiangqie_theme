@@ -49,16 +49,17 @@ jQuery(document).ready(function ($) {
 
                 let tabbox = $('.tabBox_active');
 
+                let content = '';
                 for (let i = 0; i < posts.length; i++) {
                     let post = posts[i];
                     let element = '';
                     if (post.thumbnail ) {
-                        element += '<div class="post-div simple-item simple-left-side">'
+                        element += '<div class="post-div simple-item simple-left-side slide-in">'
                         element += '<div class="simple-img simple-left-img">'
-                        element += '<a href="' + post.cat_link + '" title="' + post.cat_name + '">'
-                        element += '<strong>' + post.cat_name + '</strong>'
+                        element += '<a class="simple-left-img-a" href="' + post.link + '" title="' + post.title + '">'
                         element += '<img alt="picture loss" src="' + post.thumbnail + '" />'
                         element += '</a>'
+                        element += '<a class="simple-left-img-cat-a" href="' + post.cat_link + '" title="' + post.cat_name + '"><strong>' + post.cat_name + '</strong></a>'
                         element += '</div>'
                         element += '<div class="simple-content">'
                         element += '<h2>'
@@ -102,7 +103,7 @@ jQuery(document).ready(function ($) {
 
                         element += '</p></div></div>'
                     } else {
-                        element += '<div class="post-div simple-item">'
+                        element += '<div class="post-div simple-item slide-in">'
                         element += '<div class="simple-content">'
                         element += '<h2>'
 
@@ -146,8 +147,12 @@ jQuery(document).ready(function ($) {
                         element += '</p></div></div>'
                     }
 
-                    tabbox.append(element);
+                    // tabbox.append(element);
+
+                    content += element;
                 }
+
+                tabbox.append(content);
 
                 loading = false;
                 $('.spinner').hide();

@@ -102,7 +102,7 @@ if (!defined('ZHUIGE_MARKET')) {
 	function enqueue_script_zhuige_market()
 	{
 		$url = get_template_directory_uri();
-		wp_register_script('lib-layer', $url . '/js/layer/layer.js', ['jquery'], '1.0', false);
+		wp_enqueue_script('lib-layer', $url . '/js/layer/layer.js', ['jquery'], '1.0', false);
 		wp_enqueue_script('zhuige-market-js', $url . "/js/zhuige-market.js", array('jquery', 'lib-layer'), '1.0.', true);
 	}
 
