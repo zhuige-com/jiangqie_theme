@@ -1,11 +1,10 @@
-
 /** 友情链接 start **/
 .linkcat {
-	padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .linkcat h2 {
-	height: 1.1em;
+    height: 1.1em;
     line-height: 1.1em;
     border-left: 4px solid #E63600;
     text-indent: 10px;
@@ -15,27 +14,27 @@
     margin-bottom: 20px;
 }
 
-
 .linkcat a {
     color: #333;
+}
 
-}
 .linkcat .blogroll {
-	margin-bottom: 20px;
-	padding-left: 5px;
+    margin-bottom: 20px;
+    padding-left: 5px;
 }
+
 .linkcat .blogroll li {
-	height: auto;
-	width: 18.4%;
-	margin-right: 1%;
-	margin-bottom: 16px;
-	font-size: 13px;
+    height: auto;
+    width: 18.4%;
+    margin-right: 1%;
+    margin-bottom: 16px;
+    font-size: 13px;
 }
 
 .linkcat .blogroll li img {
-	margin-bottom: 10px;
-	clear: both;
-	display: block;
+    margin-bottom: 10px;
+    clear: both;
+    display: block;
 }
 
 .linkcat a:hover {
@@ -99,19 +98,25 @@
 }
 
 @-webkit-keyframes stretchdelay {
-    0%, 40%, 100% {
+    0%,
+    40%,
+    100% {
         -webkit-transform: scaleY(0.4)
     }
+
     20% {
         -webkit-transform: scaleY(1.0)
     }
 }
 
 @keyframes stretchdelay {
-    0%, 40%, 100% {
+    0%,
+    40%,
+    100% {
         transform: scaleY(0.4);
         -webkit-transform: scaleY(0.4);
     }
+
     20% {
         transform: scaleY(1.0);
         -webkit-transform: scaleY(1.0);
@@ -120,16 +125,17 @@
 
 /** 加载动画 start **/
 .content-wrap .content-view img {
-    height: auto !important; 
+    height: auto !important;
 }
+
 .content-wrap .content-view img.aligncenter {
     display: block;
     margin: 0 auto;
 }
 
 @media (max-width:568px) {
-	.linkcat .blogroll li {
-	    width: 31%;
-		margin: 0 0.7% 16px;
-	}
+    .linkcat .blogroll li {
+        width: 31%;
+        margin: 0 0.7% 16px;
+    }
 }
