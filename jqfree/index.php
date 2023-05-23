@@ -149,7 +149,7 @@
 						<h1>最新文章</h1>
 
 						<ul class="tab_nav">
-							<li class="tab-nav-li tabNav_active">
+							<li class="tab-nav-li tabNav_active" data-catid="">
 								<text>全部</text>
 							</li>
 							<?php $categories = jiangqie_nav_catsegories();
