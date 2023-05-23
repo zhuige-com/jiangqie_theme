@@ -18,13 +18,15 @@
 							<?php while (have_posts()) : the_post();
 								$thumbnail = jiangqie_thumbnail_src();
 								if (!empty($thumbnail)) : ?>
-									<div class="simple-item simple-left-side">
+									<div class="post-div simple-item simple-left-side slide-in">
 										<!--左侧图列表块-->
 										<div class="simple-img simple-left-img">
-											<a href="<?php the_permalink() ?>" title="<?php the_title() ?>">
-												<strong><?php $the_post_category = get_the_category(get_the_ID());
-														echo $the_post_category[0]->cat_name; ?></strong>
+											<a class="simple-left-img-a" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
 												<img alt="<?php the_title() ?>" src="<?php echo $thumbnail; ?>" />
+											</a>
+											<?php $the_post_category = get_the_category(get_the_ID());?>
+											<a class="simple-left-img-cat-a" href="<?php echo get_category_link($categories[0]->cat_ID); ?>" title="<?php echo $the_post_category[0]->cat_name; ?>">
+												<strong><?php echo $the_post_category[0]->cat_name; ?></strong>
 											</a>
 										</div>
 										<div class="simple-content">
