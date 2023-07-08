@@ -178,17 +178,15 @@ function jiangqie_theme_free_on_admin_init()
 }
 
 function jiangqie_theme_free_handle_external_redirects()
-{
-    if (empty($_GET['page'])) {
-        return;
-    }
+{	
+	$page = isset($_GET['page']) ? $_GET['page'] : '';
 
-    if ('jiangqie_theme_free_setup' === $_GET['page']) {
+    if ('jiangqie_theme_free_setup' === $page) {
         wp_redirect('https://www.zhuige.com/docs/ztfree');
         exit;
     }
 
-    if ('jiangqie_theme_free_upgrade' === $_GET['page']) {
+    if ('jiangqie_theme_free_upgrade' === $page) {
         wp_redirect('https://www.zhuige.com/product/zt.html');
         exit;
     }
@@ -431,7 +429,11 @@ function jiangqie_breadcrumbs()
         } elseif (is_attachment()) { // 附件
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);
-            $cat = $cat[0];
+            if (is_array($cat) && count($cat) > 0) {
+                $cat = $cat[0];
+            } else {
+                $cat = '未分类';
+            }
             echo '<a itemprop="breadcrumb" href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
             echo $before . get_the_title() . $after;
         } elseif (is_page() && !$post->post_parent) { // 页面

@@ -13,8 +13,9 @@
 
                 <div class="base-list search-list mb-20">
                     <?php jiangqie_breadcrumbs(); ?>
-                    <div class="content-wrap">
-                        这个页面不存在~
+                    <div class="content-wrap" style="text-align: center; font-size: 14px;">
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/images/404.jpg' ?>" alt=" " />
+                        <p>这里什么也没有~</p>
                     </div>
                 </div>
 
@@ -25,5 +26,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    setTimeout(() => {
+        window.location.href = '/';
+    }, 2000)
+</script>
 
 <?php get_footer(); ?>

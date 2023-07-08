@@ -14,7 +14,7 @@ add_action('wp_ajax_nopriv_jaingqie_thumbup', 'jaingqie_thumbup');
 add_action('wp_ajax_jaingqie_thumbup', 'jaingqie_thumbup');
 function jaingqie_thumbup()
 {
-    $id = isset($_POST["um_id"]) ? sanitize_text_field(wp_unslash($_POST["um_id"])) : '';
+    $id = isset($_POST["um_id"]) ? (int)($_POST["um_id"]) : 0;
     $action = isset($_POST["um_action"]) ? sanitize_text_field(wp_unslash($_POST["um_action"])) : '';
     if ($action == 'jaingqie_thumbup') {
         $specs_raters = get_post_meta($id, 'jaingqie_thumbup', true);
@@ -187,10 +187,7 @@ function ajax_more_posts()
 {
     header("Content-Type: application/json");
 
-    $start = isset($_POST['start']) ? sanitize_text_field(wp_unslash($_POST['start'])) : '';
-    if (empty($start)) {
-        $start = 0;
-    }
+    $start = isset($_POST['start']) ? (int)($_POST['start']) : 0;
 
     $args = [
         'posts_per_page' => 10,
