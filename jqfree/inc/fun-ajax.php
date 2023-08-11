@@ -10,9 +10,9 @@ if (!defined('ABSPATH')) {
 /**
  * 点赞功能
  */
-add_action('wp_ajax_nopriv_jaingqie_thumbup', 'jaingqie_thumbup');
-add_action('wp_ajax_jaingqie_thumbup', 'jaingqie_thumbup');
-function jaingqie_thumbup()
+add_action('wp_ajax_nopriv_jaingqie_thumbup', 'jaingqie_theme_thumbup');
+add_action('wp_ajax_jaingqie_thumbup', 'jaingqie_theme_thumbup');
+function jaingqie_theme_thumbup()
 {
     $id = isset($_POST["um_id"]) ? (int)($_POST["um_id"]) : 0;
     $action = isset($_POST["um_action"]) ? sanitize_text_field(wp_unslash($_POST["um_action"])) : '';
@@ -34,13 +34,13 @@ function jaingqie_thumbup()
 /**
  * 加载文章
  */
-add_action('wp_ajax_nopriv_ajax_more_posts', 'ajax_more_posts');
-add_action('wp_ajax_ajax_more_posts', 'ajax_more_posts');
+add_action('wp_ajax_nopriv_ajax_more_posts', 'jiangqie_theme_more_posts');
+add_action('wp_ajax_ajax_more_posts', 'jiangqie_theme_more_posts');
 
 /**
  * 获取摘要
  */
-function _getExcerpt($post)
+function _jiangqie_theme_get_excerpt($post)
 {
     $length = jiangqie_option('home_excerpt_length');
     if (!$length) {
@@ -55,25 +55,30 @@ function _getExcerpt($post)
     }
 }
 
-function _getThumbnail($post_id, $post_content)
+function _jiangqie_theme_get_thumb($post_id, $post_content)
 {
     $post_thumbnail_src = '';
     if (has_post_thumbnail($post_id)) {    //如果有特色缩略图，则输出缩略图地址
         $thumbnail_src = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full');
-        $post_thumbnail_src = $thumbnail_src[0];
-    } else {
+        if ($thumbnail_src) {
+            $post_thumbnail_src = $thumbnail_src[0];
+        }
+    } 
+    
+    if (empty($post_thumbnail_src)) {
         $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
         if ($matches && isset($matches[1]) && isset($matches[1][0])) {
             $post_thumbnail_src = $matches[1][0];   //获取该图片 src
         }
     };
+
     return $post_thumbnail_src;
 }
 
 /**
  * 美化时间
  */
-function _timeAgo($ptime)
+function _jiangqie_theme_time_ago($ptime)
 {
     $ptime = strtotime($ptime);
     $etime = time() - $ptime;
@@ -97,84 +102,114 @@ function _timeAgo($ptime)
 }
 
 /**
- * 获取文章
+ * 获取置顶文章
  */
-function _getPosts($args)
+
+/**
+ * 格式化文章
+ */
+function _jiangqie_theme_format_post($post)
+{
+    $item = [
+        'id' => $post->ID,
+        'title' => $post->post_title,
+        'excerpt' => _jiangqie_theme_get_excerpt($post),
+        'thumbnail' => _jiangqie_theme_get_thumb($post->ID, $post->post_content),
+        'link' => get_permalink($post->ID)
+    ];
+
+    //分类
+    $categories = get_the_category($post->ID);
+    $item['cat_name'] = $categories[0]->cat_name;
+    $item['cat_link'] = get_category_link($categories[0]->cat_ID);
+
+    if (jiangqie_option('list_switch_author_avatar')) {
+        $author_avatar = get_user_meta($post->post_author, 'jiangqie_avatar', true);
+        if (empty($author_avatar)) {
+            $author_avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
+        }
+        $item['author_avatar'] = '<img alt="picture loss" src="' . $author_avatar . '" />';
+    } else {
+        $item['author_avatar'] = '';
+    }
+
+    if (jiangqie_option('list_switch_author_name')) {
+        $item['author_name'] = get_user_meta($post->post_author, 'nickname', true);
+    } else {
+        $item['author_name'] = '';
+    }
+
+    if ($item['author_avatar'] || $item['author_name']) {
+        $item['author_link'] = get_author_posts_url($post->post_author);
+    }
+
+    if (jiangqie_option('list_switch_view_count')) {
+        $count = get_post_meta($post->ID, "views", true);
+        if (!$count) {
+            $count = 0;
+        }
+        $item['views_count'] = $count;
+    } else {
+        $item['views_count'] = '';
+    }
+
+    if (jiangqie_option('list_switch_thumbup_count')) {
+        $count = get_post_meta($post->ID, "jaingqie_thumbup", true);
+        if (!$count) {
+            $count = 0;
+        }
+        $item['thumbup_count'] = $count;
+    } else {
+        $item['thumbup_count'] = '';
+    }
+
+    if (jiangqie_option('list_switch_comment_count')) {
+        $item['comment_count'] = $post->comment_count;
+    } else {
+        $item['comment_count'] = '';
+    }
+
+    $item['time'] = _jiangqie_theme_time_ago($post->post_date_gmt);
+
+    return $item;
+}
+
+/**
+ * 获取置顶的文章
+ */
+function _jiangqie_theme_get_stick_posts()
+{
+    $stickies = get_option('sticky_posts');
+    if (!is_array($stickies) || empty($stickies)) {
+        return [];
+    }
+
+    $query = new WP_Query();
+    $result = $query->query([
+        'post__in' => $stickies,
+    ]);
+
+    $posts = [];
+    foreach ($result as $post) {
+        $item = _jiangqie_theme_format_post($post);
+        $item['stick'] = 1;
+        $posts[] = $item;
+    }
+
+    return $posts;
+}
+
+/**
+ * 根据参数获取文章
+ */
+function _jiangqie_theme_get_posts($args)
 {
     $query = new WP_Query();
     $result = $query->query($args);
 
     $posts = [];
     foreach ($result as $post) {
-        $item = [
-            'id' => $post->ID,
-            'title' => $post->post_title,
-            'excerpt' => _getExcerpt($post),
-            'thumbnail' => _getThumbnail($post->ID, $post->post_content),
-            'link' => get_permalink($post->ID)
-        ];
-
-        //置顶
-        // $stickies = get_option('sticky_posts');
-        // if (!is_array($stickies)) {
-        //     $stickies = [];
-        // }ies
-        // $item['stick'] = in_array($post->ID, $stickies, true);
-
-        //分类
-        $categories = get_the_category($post->ID);
-        $item['cat_name'] = $categories[0]->cat_name;
-        $item['cat_link'] = get_category_link($categories[0]->cat_ID);
-
-        if (jiangqie_option('list_switch_author_avatar')) {
-            $author_avatar = get_user_meta($post->post_author, 'jiangqie_avatar', true);
-            if (empty($author_avatar)) {
-                $author_avatar = get_stylesheet_directory_uri() . '/images/default_avatar.jpg';
-            }
-            $item['author_avatar'] = '<img alt="picture loss" src="' . $author_avatar . '" />';
-        } else {
-            $item['author_avatar'] = '';
-        }
-
-        if (jiangqie_option('list_switch_author_name')) {
-            $item['author_name'] = get_user_meta($post->post_author, 'nickname', true);
-        } else {
-            $item['author_name'] = '';
-        }
-
-        if ($item['author_avatar'] || $item['author_name']) {
-            $item['author_link'] = get_author_posts_url($post->post_author);
-        }
-
-        if (jiangqie_option('list_switch_view_count')) {
-            $count = get_post_meta($post->ID, "views", true);
-            if (!$count) {
-                $count = 0;
-            }
-            $item['views_count'] = $count;
-        } else {
-            $item['views_count'] = '';
-        }
-
-        if (jiangqie_option('list_switch_thumbup_count')) {
-            $count = get_post_meta($post->ID, "jaingqie_thumbup", true);
-            if (!$count) {
-                $count = 0;
-            }
-            $item['thumbup_count'] = $count;
-        } else {
-            $item['thumbup_count'] = '';
-        }
-
-        if (jiangqie_option('list_switch_comment_count')) {
-            $item['comment_count'] = $post->comment_count;
-        } else {
-            $item['comment_count'] = '';
-        }
-
-        $item['time'] = _timeAgo($post->post_date_gmt);
-
-        $posts[] = $item;
+        $posts[] = _jiangqie_theme_format_post($post);
     }
 
     return $posts;
@@ -183,7 +218,7 @@ function _getPosts($args)
 /**
  * 文章列表
  */
-function ajax_more_posts()
+function jiangqie_theme_more_posts()
 {
     header("Content-Type: application/json");
 
@@ -193,28 +228,40 @@ function ajax_more_posts()
         'posts_per_page' => 10,
         'offset' => $start,
         'orderby' => 'date',
-        'post_status' => ['publish']
+        'post_status' => ['publish'],
     ];
 
-    if (isset($_POST['tagid'])) {
-        $catid = sanitize_text_field(wp_unslash($_POST['tagid']));
-        $args['tag_id'] = $catid;
-    } else if (isset($_POST['author'])) {
-        $author = sanitize_text_field(wp_unslash($_POST['author']));
+    $tag_id = isset($_POST['tagid']) ? (int)($_POST['tagid']) : 0;
+    $author = isset($_POST['author']) ? (int)($_POST['author']) : 0;
+    $cat_id = isset($_POST['catid']) ? (int)($_POST['catid']) : 0;
+
+    $stick_posts = [];
+    if ($tag_id) {
+        $args['tag_id'] = $tag_id;
+    } else if ($author) {
         $args['author'] = $author;
-    } else if (isset($_POST['catid'])) {
-        $catid = sanitize_text_field(wp_unslash($_POST['catid']));
-        $args['cat'] = $catid;
+    } else if ($cat_id) {
+        $args['cat'] = $cat_id;
     } else {
         $home_cat_show = jiangqie_option('home_cat_show');
         if (!empty($home_cat_show)) {
-            $args['category__in'] = implode(",", $home_cat_show);
+            $args['category__in'] = $home_cat_show;
+        }
+
+        $stickies = get_option('sticky_posts');
+        if (is_array($stickies) && !empty($stickies)) {
+            $args['post__not_in'] = $stickies;
+        }
+
+        if ($start == 0) {
+            $stick_posts = _jiangqie_theme_get_stick_posts();
         }
     }
 
-    $posts = _getPosts($args);
+    $posts = _jiangqie_theme_get_posts($args);
 
-    echo json_encode($posts);
+    echo json_encode(array_merge($stick_posts, $posts));
+
     die;
 }
 

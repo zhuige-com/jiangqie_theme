@@ -206,19 +206,17 @@ function jiangqie_thumbnail_src_d($post_id, $post_content)
     $post_thumbnail_src = '';
     if (has_post_thumbnail($post_id)) {    //如果有特色缩略图，则输出缩略图地址
         $thumbnail_src = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'full');
-        if (is_array($thumbnail_src) && count($thumbnail_src) > 0) {
+        if ($thumbnail_src) {
             $post_thumbnail_src = $thumbnail_src[0];
         }
     } 
     
     if (empty($post_thumbnail_src)) {
-        ob_start();
-        ob_end_clean();
         $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
         if ($matches && isset($matches[1]) && isset($matches[1][0])) {
             $post_thumbnail_src = $matches[1][0];   //获取该图片 src
         }
-    };
+    }
 
     return $post_thumbnail_src;
 }

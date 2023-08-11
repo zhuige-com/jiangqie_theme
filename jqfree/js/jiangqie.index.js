@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
         loading = true;
         $('.spinner').show();
 
-        let start = $('.post-div').length;
+        let start = $('.post-div').length - $('.post-div-stick').length;
         $.post("/wp-admin/admin-ajax.php",
             {
                 action: 'ajax_more_posts',
@@ -54,7 +54,13 @@ jQuery(document).ready(function ($) {
                     let post = posts[i];
                     let element = '';
                     if (post.thumbnail ) {
-                        element += '<div class="post-div simple-item simple-left-side slide-in">'
+
+                        if (post.stick) {
+                            element += '<div class="post-div simple-item simple-left-side slide-in post-div-stick">'
+                        } else {
+                            element += '<div class="post-div simple-item simple-left-side slide-in">'
+                        }
+
                         element += '<div class="simple-img simple-left-img">'
                         element += '<a class="simple-left-img-a" href="' + post.link + '" title="' + post.title + '">'
                         element += '<img alt="picture loss" src="' + post.thumbnail + '" />'
