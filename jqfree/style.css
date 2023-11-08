@@ -4,7 +4,7 @@ Theme URI: https://www.zhuige.com/product/ztfree.html
 Author: the 酱茄
 Author URI: https://www.zhuige.com/
 Description: 酱茄Free主题由追格（www.zhuige.com）开发的一款免费开源的WordPress主题，专为WordPress博客、资讯、自媒体网站而设计。
-Version: 1.2.5
+Version: 1.2.6
 Requires PHP: 7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1998,8 +1998,8 @@ footer.cont-footer {
         height: 90px;
     }
 
-    .article-list .simple-left-img a,
-    .article-list .simple-left-img a img {
+    .article-list .simple-left-img .simple-left-img-a,
+    .article-list .simple-left-img .simple-left-img-a img {
         width: 120px;
         height: 90px;
     }
@@ -2007,7 +2007,7 @@ footer.cont-footer {
     .article-list .simple-content h2 {
         font-size: 15px;
         font-weight: 500;
-        height: 50px;
+        height: 46px;
         line-height: 18px;
         overflow: hidden;
         margin-top: 6px;
@@ -2288,4 +2288,13 @@ footer.cont-footer {
         width: 31%;
         margin: 0 0.7% 16px;
     }
+}
+
+body .layui-layer-noboxshade{
+    background: 0 0;
+    box-shadow: none;
+}
+
+body .layui-layer-noboxshade .layui-layer-content {
+    overflow: hidden;
 }

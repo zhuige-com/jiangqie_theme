@@ -185,4 +185,10 @@
 	</div>
 </div>
 
+<div id="home-ad-pop" style="display: none;">
+	<a class="home-ad-pop-link" href="" target="_blank">
+		<img class="home-ad-pop-image" src="" style="height: 60vh;" />
+	</a>
+</div>
+
 <?php get_footer(); ?>

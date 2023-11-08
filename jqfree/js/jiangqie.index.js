@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
                 for (let i = 0; i < posts.length; i++) {
                     let post = posts[i];
                     let element = '';
-                    if (post.thumbnail ) {
+                    if (post.thumbnail) {
 
                         if (post.stick) {
                             element += '<div class="post-div simple-item simple-left-side slide-in post-div-stick">'
@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
                         if (post.stick) {
                             element += '<strong>置顶</strong>'
                         }
-                        
+
                         element += '<a href="' + post.link + '" title="">' + post.title + '</a>'
                         element += '</h2>'
                         element += '<p><a href="' + post.link + '" title="">' + post.excerpt + '</a></p>'
@@ -116,7 +116,7 @@ jQuery(document).ready(function ($) {
                         if (post.stick) {
                             element += '<strong>置顶</strong>'
                         }
-                        
+
                         element += '<a href="' + post.link + '" title="">' + post.title + '</a>'
                         element += '</h2>'
                         element += '<p><a href="' + post.link + '" title="">' + post.excerpt + '</a></p>'
@@ -149,7 +149,7 @@ jQuery(document).ready(function ($) {
                         }
 
                         element += '<cite>' + post.time + '</cite>'
-                        
+
                         element += '</p></div></div>'
                     }
 
@@ -197,4 +197,32 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $.post("/wp-admin/admin-ajax.php",
+        {
+            action: 'zhuige_home_pop_ad'
+        },
+        function (data, status) {
+            if (status != 'success' || !data.success) {
+                return;
+            }
+
+            if (data.data.pop != 1) {
+                return;
+            }
+
+            $('.home-ad-pop-image').on('load', function () {
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 1,
+                    area: ['auto'],
+                    skin: 'layui-layer-noboxshade', //没有背景色没有边框阴影
+                    shadeClose: true,
+                    content: $('#home-ad-pop')
+                });
+            })
+
+            $('.home-ad-pop-link').attr('href', data.data.link);
+            $('.home-ad-pop-image').attr('src', data.data.image);
+        });
 });

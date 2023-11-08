@@ -312,3 +312,35 @@ function zhuige_market_event()
 
     die;
 }
+
+/**
+ * 首页弹框
+ */
+add_action('wp_ajax_nopriv_zhuige_home_pop_ad', 'zhuige_home_pop_ad');
+add_action('wp_ajax_zhuige_home_pop_ad', 'zhuige_home_pop_ad');
+function zhuige_home_pop_ad()
+{
+    $last_home_ad_pop_time = isset($_COOKIE['last_home_ad_pop_time']) ? $_COOKIE['last_home_ad_pop_time'] : false;
+    if ($last_home_ad_pop_time && $last_home_ad_pop_time > time()) {
+        wp_send_json_success(['pop' => 0]);
+        die;
+    }
+
+    $home_ad_pop = jiangqie_option('home_ad_pop');
+    if ($home_ad_pop && $home_ad_pop['switch'] && $home_ad_pop['image'] && $home_ad_pop['image']['url']) {
+        $data = [
+            'pop' => 1,
+            'image' => $home_ad_pop['image']['url'],
+            'link' => $home_ad_pop['link'],
+        ];
+
+        $expire = time() + (int)$home_ad_pop['interval'] * 3600;
+        setcookie('last_home_ad_pop_time', $expire, $expire);
+
+        wp_send_json_success($data);
+    } else {
+        wp_send_json_success(['pop' => 0]);
+    }
+
+    die;
+}

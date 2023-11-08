@@ -81,7 +81,7 @@ function jiangqie_theme_init()
     wp_register_script('lib-script', $url . '/js/lib/lb.js', [], '0.3');
     wp_register_script('lib-layer', $url . '/js/layer/layer.js', ['jquery'], '1.0', false);
     wp_register_script('jq-footer-script', $url . '/js/jiangqie.footer.js', ['jquery'], '0.3', true);
-    wp_register_script('jq-index-script', $url . '/js/jiangqie.index.js', ['jquery', 'lib-script'], '0.4', true);
+    wp_register_script('jq-index-script', $url . '/js/jiangqie.index.js', ['jquery', 'lib-script', 'lib-layer'], '0.8', true);
     wp_register_script('jq-archive-script', $url . '/js/jiangqie.archive.js', ['jquery'], '0.4', true);
     wp_register_script('jq-single-script', $url . '/js/jiangqie.single.js', ['lib-layer'], '0.3', true);
 

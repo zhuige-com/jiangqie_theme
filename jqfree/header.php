@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<title><?php jiangqie_seo_title() ?></title>
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=1.2.2">
+	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?ver=<?php echo filemtime(get_stylesheet_directory() . '/style.css') ?>">
 	<script>
 		var gCatId = undefined;
 		var gTagId = undefined;

@@ -183,6 +183,39 @@ CSF::createSection($prefix, array(
             'step'     => 1,
             'default'  => 25,
         ),
+
+        array(
+            'id'     => 'home_ad_pop',
+            'type'   => 'fieldset',
+            'title'  => '弹窗广告',
+            'fields' => array(
+                array(
+                    'id'      => 'image',
+                    'type'    => 'media',
+                    'title'   => '图片',
+                    'library' => 'image',
+                ),
+                array(
+                    'id'       => 'link',
+                    'type'     => 'text',
+                    'title'    => '链接',
+                    'default'  => 'https://www.zhuige.com',
+                ),
+                array(
+                    'id'    => 'switch',
+                    'type'  => 'switcher',
+                    'title' => '开启/停用',
+                    'default' => '1'
+                ),
+                array(
+                    'id'    => 'interval',
+                    'type'  => 'number',
+                    'title' => '间隔时间',
+                    'subtitle' => '单位（小时）',
+                    'default'  => 1
+                ),
+            ),
+        ),
     )
 ));
 
