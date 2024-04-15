@@ -24,9 +24,9 @@
 											<a class="simple-left-img-a" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
 												<img alt="<?php the_title() ?>" src="<?php echo $thumbnail; ?>" />
 											</a>
-											<?php $the_post_category = get_the_category(get_the_ID());?>
-											<a class="simple-left-img-cat-a" href="<?php echo get_category_link($categories[0]->cat_ID); ?>" title="<?php echo $the_post_category[0]->cat_name; ?>">
-												<strong><?php echo $the_post_category[0]->cat_name; ?></strong>
+											<?php $the_category = get_the_category();?>
+											<a class="simple-left-img-cat-a" href="<?php echo get_category_link($the_category[0]->cat_ID); ?>" title="<?php echo $the_category[0]->cat_name; ?>">
+												<strong><?php echo $the_category[0]->cat_name; ?></strong>
 											</a>
 										</div>
 										<div class="simple-content">
