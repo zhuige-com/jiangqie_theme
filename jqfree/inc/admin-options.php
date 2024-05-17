@@ -64,7 +64,7 @@ CSF::createSection($prefix, array(
 //
 CSF::createSection($prefix, array(
     'title' => '基础设置',
-    'icon'  => 'fas fa-map-marker',
+    'icon'  => 'fas fa-cube',
     'fields' => array(
 
         array(
